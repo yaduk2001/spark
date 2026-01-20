@@ -28,28 +28,28 @@ export default function Home() {
       <div className="fixed bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-brand-indigo/20 blur-[150px] rounded-full pointer-events-none z-[-1]" />
 
       {/* Hero Section */}
-      <section className="relative pt-48 pb-12 px-6 min-h-[90vh] flex items-center overflow-visible">
+      <section className="relative pt-32 lg:pt-48 pb-12 px-6 min-h-[80vh] lg:min-h-[90vh] flex items-center overflow-visible">
         <div className="max-w-8xl mx-auto grid lg:grid-cols-2 gap-8 items-center relative z-10">
           <motion.div
             variants={containerStagger}
             initial="hidden"
             animate="visible"
           >
-            <motion.div variants={revealUp} className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-black/40 border border-brand-gold/50 text-sm font-black text-brand-gold mb-12 uppercase tracking-[0.2em] shadow-[0_0_30px_rgba(255,184,0,0.3)] backdrop-blur-md hover:bg-brand-gold hover:text-black transition-colors duration-300">
-              <span className="w-3 h-3 bg-brand-gold rounded-full animate-pulse-fast" />
+            <motion.div variants={revealUp} className="inline-flex items-center gap-3 px-4 py-2 lg:px-6 lg:py-3 rounded-full bg-black/40 border border-brand-gold/50 text-xs lg:text-sm font-black text-brand-gold mb-8 lg:mb-12 uppercase tracking-[0.2em] shadow-[0_0_30px_rgba(255,184,0,0.3)] backdrop-blur-md hover:bg-brand-gold hover:text-black transition-colors duration-300">
+              <span className="w-2 h-2 lg:w-3 lg:h-3 bg-brand-gold rounded-full animate-pulse-fast" />
               WE DON'T LAUNCH. WE ARRIVE.
             </motion.div>
 
-            <motion.h1 variants={revealUp} className="text-4xl lg:text-5xl font-black leading-tight mb-8 tracking-tighter uppercase drop-shadow-2xl">
+            <motion.h1 variants={revealUp} className="text-3xl md:text-4xl lg:text-5xl font-black leading-tight mb-6 lg:mb-8 tracking-tighter uppercase drop-shadow-2xl">
               SPARK <span className="text-transparent bg-clip-text bg-gradient-to-b from-white to-zinc-500">GLOBAL</span> <br />
               <GlitchText text="REVOLUTION" as="span" className="gradient-text animate-shine" />
             </motion.h1>
 
-            <motion.p variants={revealUp} className="text-lg text-zinc-300 font-bold mb-10 max-w-xl leading-snug border-l-4 border-brand-purple pl-6">
+            <motion.p variants={revealUp} className="text-base lg:text-lg text-zinc-300 font-bold mb-8 lg:mb-10 max-w-xl leading-snug border-l-4 border-brand-purple pl-4 lg:pl-6">
               We are building the future of decentralized finance and gaming. <span className="text-white">Join the revolution</span> that empowers communities and rewards participation.
             </motion.p>
 
-            <motion.div variants={revealUp} className="mb-16 scale-110 origin-left">
+            <motion.div variants={revealUp} className="mb-12 lg:mb-16 scale-100 lg:scale-110 origin-left">
               <MembershipCounter />
             </motion.div>
           </motion.div>
@@ -69,9 +69,9 @@ export default function Home() {
             </div>
 
             {/* Mobile View */}
-            <div className="lg:hidden relative w-[350px] h-[350px]">
+            <div className="lg:hidden relative w-[300px] h-[300px]">
               <div className="absolute top-4 right-4 z-20">
-                <NFTCoin size={150} className="animate-float" />
+                <NFTCoin size={120} className="animate-float" />
               </div>
               {/* Floating User Info - centered at bottom */}
               <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-30 w-full scale-90">
@@ -83,12 +83,12 @@ export default function Home() {
       </section>
 
       {/* Who We Are & Mission Section */}
-      <section className="py-16 px-6 relative bg-zinc-950">
+      <section className="py-12 lg:py-16 px-6 relative bg-zinc-950">
         <div className="max-w-8xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <ScrollReveal animation="slide-right" className="flex flex-col gap-6">
               {/* Global Connectivity Card with Background Visual */}
-              <div className="glass-card-heavy rgb-border h-[500px] flex flex-col justify-end p-10 group relative overflow-hidden">
+              <div className="glass-card-heavy rgb-border min-h-[400px] lg:h-[500px] flex flex-col justify-end p-6 lg:p-10 group relative overflow-hidden">
 
                 {/* Dynamic Background Visual */}
                 <div className="absolute inset-0 z-0 opacity-60 group-hover:opacity-100 transition-opacity duration-500 scale-110 group-hover:scale-100 transition-transform">
@@ -98,18 +98,19 @@ export default function Home() {
 
                 {/* Badge */}
                 <div className="absolute top-6 right-6 z-10">
-                  <span className="px-4 py-2 bg-brand-purple border border-white/20 rounded-xl text-xs font-black text-white shadow-[0_0_20px_rgba(138,43,226,0.5)] uppercase tracking-widest">
+                  <span className="px-3 py-1 lg:px-4 lg:py-2 bg-brand-purple border border-white/20 rounded-xl text-[10px] lg:text-xs font-black text-white shadow-[0_0_20px_rgba(138,43,226,0.5)] uppercase tracking-widest">
                     AI POWERED NETWORK
                   </span>
                 </div>
 
                 {/* Content Overlay */}
                 <div className="relative z-10 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                  <div className="w-16 h-16 rounded-2xl bg-brand-blue/20 backdrop-blur-md flex items-center justify-center text-brand-blue mb-6 shadow-[0_0_30px_rgba(59,130,246,0.4)] border border-brand-blue/30">
-                    <Network size={32} />
+                  <div className="w-12 h-12 lg:w-16 lg:h-16 rounded-2xl bg-brand-blue/20 backdrop-blur-md flex items-center justify-center text-brand-blue mb-4 lg:mb-6 shadow-[0_0_30px_rgba(59,130,246,0.4)] border border-brand-blue/30">
+                    <Network size={28} className="lg:hidden" />
+                    <Network size={32} className="hidden lg:block" />
                   </div>
-                  <h3 className="text-3xl font-black mb-4 text-white uppercase tracking-tight">Global <span className="text-brand-blue">Connectivity</span></h3>
-                  <p className="text-zinc-300 leading-snug font-bold max-w-md text-base">
+                  <h3 className="text-2xl lg:text-3xl font-black mb-3 lg:mb-4 text-white uppercase tracking-tight">Global <span className="text-brand-blue">Connectivity</span></h3>
+                  <p className="text-zinc-300 leading-snug font-bold max-w-md text-sm lg:text-base">
                     Connecting markets, gamers, and investors in a unified blockchain ecosystem.
                   </p>
                 </div>
@@ -151,10 +152,10 @@ export default function Home() {
       </section>
 
       {/* Subscription Section - "Activate Membership" flow */}
-      <section className="py-20 px-6 relative" id="subscription">
+      <section className="py-12 lg:py-20 px-6 relative" id="subscription">
         <div className="absolute inset-0 bg-brand-purple/5 skew-y-3 transform origin-top-left pointer-events-none" />
         <div className="max-w-7xl mx-auto relative z-10">
-          <ScrollReveal animation="fade-up" className="text-center mb-20">
+          <ScrollReveal animation="fade-up" className="text-center mb-12 lg:mb-20">
             <GlitchText text="ACCESS THE FUTURE" as="h2" className="text-3xl md:text-4xl font-black mb-5 uppercase tracking-tighter mix-blend-screen text-stroke text-white block" />
             <p className="text-zinc-500 max-w-2xl mx-auto text-lg font-bold uppercase tracking-widest">Choose your entry point</p>
           </ScrollReveal>
@@ -198,12 +199,12 @@ export default function Home() {
       </section>
 
       {/* Why Choose Spark - Card Structure */}
-      <section className="py-24 px-6 bg-black relative overflow-hidden">
+      <section className="py-16 lg:py-24 px-6 bg-black relative overflow-hidden">
         {/* Aggressive Grid Background */}
         <div className="absolute inset-0 bg-[url('/images/grid.svg')] bg-center opacity-20" />
 
         <div className="max-w-8xl mx-auto relative z-10">
-          <ScrollReveal animation="fade-up" className="mb-20 text-center">
+          <ScrollReveal animation="fade-up" className="mb-12 lg:mb-20 text-center">
             <GlitchText text="WHY CHOOSE SPARK GLOBAL?" as="h2" className="text-3xl md:text-4xl font-black uppercase tracking-tighter text-white block" />
           </ScrollReveal>
 
@@ -216,15 +217,15 @@ export default function Home() {
               <ScrollReveal key={i} animation="zoom-in" delay={i * 0.1}>
                 <motion.div
                   whileHover={{ y: -15, scale: 1.02 }}
-                  className="p-10 rounded-[2rem] bg-zinc-900/80 backdrop-blur-md border-double border-4 border-transparent bg-origin-border transition-all group shadow-2xl h-full flex flex-col items-center text-center rgb-border"
+                  className="p-8 lg:p-10 rounded-[2rem] bg-zinc-900/80 backdrop-blur-md border-double border-4 border-transparent bg-origin-border transition-all group shadow-2xl h-full flex flex-col items-center text-center rgb-border"
                 >
-                  <div className="w-24 h-24 rounded-full bg-brand-gold/10 flex items-center justify-center text-brand-gold mb-8 group-hover:scale-125 group-hover:bg-brand-gold group-hover:text-black transition-all duration-300 shadow-[0_0_40px_rgba(255,184,0,0.2)]">
+                  <div className="w-20 h-20 lg:w-24 lg:h-24 rounded-full bg-brand-gold/10 flex items-center justify-center text-brand-gold mb-6 lg:mb-8 group-hover:scale-125 group-hover:bg-brand-gold group-hover:text-black transition-all duration-300 shadow-[0_0_40px_rgba(255,184,0,0.2)]">
                     <div className="group-hover:animate-spin-slow">
                       {card.icon}
                     </div>
                   </div>
-                  <h3 className="text-3xl font-black mb-4 text-white uppercase italic">{card.title}</h3>
-                  <p className="text-zinc-400 leading-relaxed font-bold text-lg">
+                  <h3 className="text-2xl lg:text-3xl font-black mb-4 text-white uppercase italic">{card.title}</h3>
+                  <p className="text-zinc-400 leading-relaxed font-bold text-base lg:text-lg">
                     {card.desc}
                   </p>
                 </motion.div>
@@ -235,15 +236,15 @@ export default function Home() {
       </section>
 
       {/* Rewards Core Section */}
-      <section className="py-24 px-6 bg-zinc-950 relative" id="rewards">
+      <section className="py-16 lg:py-24 px-6 bg-zinc-950 relative" id="rewards">
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-brand-purple to-transparent" />
         <div className="max-w-8xl mx-auto">
-          <ScrollReveal animation="fade-up" className="text-center mb-20">
-            <span className="text-brand-purple font-black tracking-[0.5em] uppercase mb-4 block animate-pulse">Unlock Potential</span>
+          <ScrollReveal animation="fade-up" className="text-center mb-12 lg:mb-20">
+            <span className="text-brand-purple font-black tracking-[0.5em] uppercase mb-4 block animate-pulse text-sm lg:text-base">Unlock Potential</span>
             <GlitchText text="4 TYPES OF REWARDS" as="h2" className="text-3xl md:text-5xl font-black mb-4 uppercase text-white block" />
           </ScrollReveal>
 
-          <div className="grid lg:grid-cols-2 gap-10 mb-20">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 mb-16 lg:mb-20">
             {/* Reward Type 1 */}
             <ScrollReveal animation="fade-right" delay={0.1}>
               <div className="glass-card-heavy rgb-border p-2 hover:bg-brand-purple/5 transition-colors">
@@ -298,11 +299,11 @@ export default function Home() {
           </div>
 
           {/* Reward Type 3: Buying Rewards Tier */}
-          <div className="mb-24">
-            <ScrollReveal animation="fade-up" className="text-center mb-12">
-              <GlitchText text="3. SPARK COMMUNITY BUYING REWARDS" as="h3" className="text-3xl md:text-4xl font-black mb-8 uppercase tracking-tight text-white block" />
+          <div className="mb-16 lg:mb-24">
+            <ScrollReveal animation="fade-up" className="text-center mb-8 lg:mb-12">
+              <GlitchText text="3. SPARK COMMUNITY BUYING REWARDS" as="h3" className="text-2xl md:text-4xl font-black mb-6 lg:mb-8 uppercase tracking-tight text-white block" />
             </ScrollReveal>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
               <ScrollReveal animation="zoom-in" delay={0.1}>
                 <div className="glass-card hover:bg-white/10 p-1 rgb-border">
                   <RewardCard
@@ -327,7 +328,7 @@ export default function Home() {
                 </div>
               </ScrollReveal>
               <ScrollReveal animation="zoom-in" delay={0.3}>
-                <div className="glass-card hover:bg-white/10 p-1 scale-105 border-brand-gold/50 shadow-[0_0_30px_rgba(255,184,0,0.2)] rgb-border">
+                <div className="glass-card hover:bg-white/10 p-1 scale-100 lg:scale-105 border-brand-gold/50 shadow-[0_0_30px_rgba(255,184,0,0.2)] rgb-border">
                   <RewardCard
                     title="Tiers 5-6"
                     items={[
@@ -342,37 +343,37 @@ export default function Home() {
           </div>
 
           {/* Staking Calculations Example */}
-          <div className="glass-card-heavy p-12 border-brand-purple/20 mb-24 bg-gradient-to-r from-brand-purple/10 via-black to-brand-indigo/10 relative overflow-hidden rgb-border">
+          <div className="glass-card-heavy p-6 lg:p-12 border-brand-purple/20 mb-16 lg:mb-24 bg-gradient-to-r from-brand-purple/10 via-black to-brand-indigo/10 relative overflow-hidden rgb-border">
             <div className="absolute top-0 right-0 w-64 h-64 bg-brand-purple/20 blur-[100px] rounded-full animate-pulse" />
 
-            <div className="flex items-center gap-4 mb-10 relative z-10">
-              <Coins className="text-brand-gold animate-spin-slow shrink-0" size={40} />
-              <GlitchText text="STAKING CALCULATION EXAMPLES" as="h3" className="text-3xl md:text-4xl font-black uppercase tracking-tight text-white block" />
+            <div className="flex items-center gap-4 mb-8 lg:mb-10 relative z-10">
+              <Coins className="text-brand-gold animate-spin-slow shrink-0" size={32} />
+              <GlitchText text="STAKING CALCULATION EXAMPLES" as="h3" className="text-2xl md:text-3xl lg:text-4xl font-black uppercase tracking-tight text-white block" />
             </div>
-            <div className="grid md:grid-cols-2 gap-x-16 gap-y-6 font-mono text-base text-zinc-300 relative z-10">
-              <div className="flex justify-between border-b border-white/10 py-3 hover:bg-white/5 px-2 transition-colors">
+            <div className="grid md:grid-cols-2 gap-x-16 gap-y-4 lg:gap-y-6 font-mono text-sm lg:text-base text-zinc-300 relative z-10">
+              <div className="flex flex-col sm:flex-row sm:justify-between border-b border-white/10 py-3 hover:bg-white/5 px-2 transition-colors">
                 <span>$0.875 x 6 Tokens</span>
-                <span className="text-brand-gold font-bold text-xl">$5.25</span>
+                <span className="text-brand-gold font-bold text-lg lg:text-xl">$5.25</span>
               </div>
-              <div className="flex justify-between border-b border-white/10 py-3 hover:bg-white/5 px-2 transition-colors">
+              <div className="flex flex-col sm:flex-row sm:justify-between border-b border-white/10 py-3 hover:bg-white/5 px-2 transition-colors">
                 <span>$0.875 x 36 Tokens</span>
-                <span className="text-brand-gold font-bold text-xl">$31.50</span>
+                <span className="text-brand-gold font-bold text-lg lg:text-xl">$31.50</span>
               </div>
-              <div className="flex justify-between border-b border-white/10 py-3 hover:bg-white/5 px-2 transition-colors">
+              <div className="flex flex-col sm:flex-row sm:justify-between border-b border-white/10 py-3 hover:bg-white/5 px-2 transition-colors">
                 <span>$1.3125 x 216 Tokens</span>
-                <span className="text-brand-gold font-bold text-xl">$283.50</span>
+                <span className="text-brand-gold font-bold text-lg lg:text-xl">$283.50</span>
               </div>
-              <div className="flex justify-between border-b border-white/10 py-3 hover:bg-white/5 px-2 transition-colors">
+              <div className="flex flex-col sm:flex-row sm:justify-between border-b border-white/10 py-3 hover:bg-white/5 px-2 transition-colors">
                 <span>$1.3125 x 1,296 Tokens</span>
-                <span className="text-brand-gold font-bold text-xl">$1,701.00</span>
+                <span className="text-brand-gold font-bold text-lg lg:text-xl">$1,701.00</span>
               </div>
-              <div className="flex justify-between border-b border-white/10 py-3 hover:bg-white/5 px-2 transition-colors">
+              <div className="flex flex-col sm:flex-row sm:justify-between border-b border-white/10 py-3 hover:bg-white/5 px-2 transition-colors">
                 <span>$1.75 x 7,776 Tokens</span>
-                <span className="text-brand-gold font-bold text-xl">$13,608.00</span>
+                <span className="text-brand-gold font-bold text-lg lg:text-xl">$13,608.00</span>
               </div>
-              <div className="flex justify-between border-b border-white/10 py-3 hover:bg-white/5 px-2 transition-colors scale-105 origin-left">
+              <div className="flex flex-col sm:flex-row sm:justify-between border-b border-white/10 py-3 hover:bg-white/5 px-2 transition-colors scale-100 lg:scale-105 origin-left">
                 <span className="text-brand-purple font-bold">$2.625 x 46,656 Tokens</span>
-                <span className="text-green-400 font-black text-2xl text-glow">$122,472.00</span>
+                <span className="text-green-400 font-black text-xl lg:text-2xl text-glow">$122,472.00</span>
               </div>
             </div>
           </div>
@@ -381,12 +382,12 @@ export default function Home() {
           <div className="relative">
             <div className="absolute inset-0 bg-brand-purple/5 blur-[100px] rounded-full" />
             <div className="relative z-10">
-              <div className="text-center mb-16">
-                <GlitchText text="EXTRA COMMUNITY REWARDS" as="h3" className="text-3xl md:text-5xl font-black uppercase text-white block" />
-                <p className="text-zinc-500 text-xl mt-2 font-bold tracking-widest uppercase">Eligible for Spark NFT Token Staking Community Only</p>
+              <div className="text-center mb-12 lg:mb-16">
+                <GlitchText text="EXTRA COMMUNITY REWARDS" as="h3" className="text-2xl md:text-5xl font-black uppercase text-white block" />
+                <p className="text-zinc-500 text-base lg:text-xl mt-2 font-bold tracking-widest uppercase">Eligible for Spark NFT Token Staking Community Only</p>
               </div>
 
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                 {[
                   { count: "6", reward: "$2.40", label: "1st Extra Reward" },
                   { count: "36", reward: "$10.80", label: "2nd Extra Reward" },
@@ -398,12 +399,12 @@ export default function Home() {
                   <motion.div
                     key={i}
                     whileHover={{ y: -10, scale: 1.05 }}
-                    className="bg-black/60 border-double border-4 border-transparent p-8 rounded-[2rem] flex flex-col items-center text-center hover:bg-brand-purple/20 bg-origin-border transition-all shadow-xl group rgb-border"
+                    className="bg-black/60 border-double border-4 border-transparent p-6 lg:p-8 rounded-[2rem] flex flex-col items-center text-center hover:bg-brand-purple/20 bg-origin-border transition-all shadow-xl group rgb-border"
                   >
-                    <div className="text-5xl font-black text-white mb-2 group-hover:scale-110 transition-transform">{item.count}</div>
-                    <div className="text-xs uppercase text-zinc-500 tracking-widest mb-6 font-bold">NFT Tokens Purchased</div>
-                    <div className="text-3xl font-black text-brand-gold mb-4 text-glow-gold">{item.reward}</div>
-                    <div className="text-xs text-black font-bold bg-brand-purple px-4 py-2 rounded-full uppercase tracking-wider shadow-[0_0_15px_rgba(138,43,226,0.5)]">{item.label}</div>
+                    <div className="text-4xl lg:text-5xl font-black text-white mb-2 group-hover:scale-110 transition-transform">{item.count}</div>
+                    <div className="text-[10px] lg:text-xs uppercase text-zinc-500 tracking-widest mb-4 lg:mb-6 font-bold">NFT Tokens Purchased</div>
+                    <div className="text-2xl lg:text-3xl font-black text-brand-gold mb-4 text-glow-gold">{item.reward}</div>
+                    <div className="text-[10px] lg:text-xs text-black font-bold bg-brand-purple px-3 py-1 lg:px-4 lg:py-2 rounded-full uppercase tracking-wider shadow-[0_0_15px_rgba(138,43,226,0.5)]">{item.label}</div>
                   </motion.div>
                 ))}
               </div>
@@ -413,12 +414,12 @@ export default function Home() {
       </section>
 
       {/* Future Plans Section */}
-      <section className="py-24 px-6 relative overflow-hidden bg-black">
+      <section className="py-16 lg:py-24 px-6 relative overflow-hidden bg-black">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-zinc-800/30 via-black to-black z-0 pointer-events-none" />
         <div className="max-w-7xl mx-auto relative z-10">
-          <ScrollReveal animation="fade-up" className="text-center mb-24">
+          <ScrollReveal animation="fade-up" className="text-center mb-16 lg:mb-24">
             <GlitchText text="FUTURE PLANS" as="h2" className="text-3xl md:text-5xl font-black mb-4 uppercase tracking-tighter text-white block" />
-            <p className="text-lg text-zinc-400 font-medium max-w-2xl mx-auto">The roadmap to global adoption and technological dominance.</p>
+            <p className="text-base lg:text-lg text-zinc-400 font-medium max-w-2xl mx-auto">The roadmap to global adoption and technological dominance.</p>
           </ScrollReveal>
 
           <div className="space-y-0">
@@ -477,8 +478,8 @@ export default function Home() {
 
       {/* AI/Blockchain Bottom Visual */}
       {/* AI/Blockchain Bottom Visual - REPLACED with AI Gaming Hub */}
-      <section className="relative py-24 bg-black overflow-hidden flex justify-center">
-        <ScrollReveal animation="zoom-in" delay={0.2} className="relative w-full max-w-6xl h-[400px] md:h-[600px] rounded-3xl overflow-hidden border border-white/10 shadow-[0_0_100px_rgba(138,43,226,0.2)] rgb-border p-1">
+      <section className="relative py-12 lg:py-24 bg-black overflow-hidden flex justify-center">
+        <ScrollReveal animation="zoom-in" delay={0.2} className="relative w-full max-w-6xl h-[300px] md:h-[500px] lg:h-[600px] rounded-3xl overflow-hidden border border-white/10 shadow-[0_0_100px_rgba(138,43,226,0.2)] rgb-border p-1">
           <Image
             src="/images/ai-gaming-hub.png"
             alt="AI Gaming & Market Hub"
@@ -491,7 +492,7 @@ export default function Home() {
       </section>
 
       {/* User Benefits Section */}
-      <section className="py-20 px-6 bg-linear-to-b from-black to-zinc-900 border-t border-white/5">
+      <section className="py-12 lg:py-20 px-6 bg-linear-to-b from-black to-zinc-900 border-t border-white/5">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal animation="fade-up" className="text-center mb-16">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-gold/10 text-brand-gold text-xs font-bold uppercase tracking-widest mb-4">
