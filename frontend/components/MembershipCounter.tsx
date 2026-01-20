@@ -1,0 +1,60 @@
+"use client";
+
+import { motion, useSpring, useTransform } from "framer-motion";
+import { useEffect, useState } from "react";
+import { Zap } from "lucide-react";
+import Link from "next/link";
+
+const MembershipCounter = () => {
+    // Mock starting count - in production this would fetch from API
+    const [count, setCount] = useState(12450);
+
+    // Spring animation for smooth counting
+    const springCount = useSpring(count, { stiffness: 50, damping: 20 });
+    const displayCount = useTransform(springCount, (latest) => Math.floor(latest).toLocaleString());
+
+    useEffect(() => {
+        // Simulate dynamic growth
+        const interval = setInterval(() => {
+            setCount(prev => prev + Math.floor(Math.random() * 3));
+        }, 5000);
+        return () => clearInterval(interval);
+    }, []);
+
+    return (
+        <div className="flex flex-col items-center sm:items-start gap-4">
+            <Link href="#subscription">
+                <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="relative group cursor-pointer"
+                >
+                    <div className="absolute inset-0 bg-brand-gold blur-xl opacity-20 group-hover:opacity-40 transition-opacity rounded-full" />
+                    <div className="relative px-10 py-5 bg-linear-to-r from-brand-gold to-brand-orange-500 rounded-full flex items-center gap-3 border border-white/20 shadow-[0_0_30px_rgba(255,184,0,0.3)]">
+                        <Zap className="text-white fill-white" size={20} />
+                        <span className="text-xl font-black uppercase tracking-wider text-white">Activate Membership</span>
+                    </div>
+                </motion.button>
+            </Link>
+
+            <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="flex items-center gap-3 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm"
+            >
+                <div className="relative flex h-3 w-3">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                </div>
+                <div className="flex items-baseline gap-2">
+                    <span className="text-sm font-medium text-zinc-400">Live Registered Users:</span>
+                    <motion.span className="text-lg font-bold text-white tabular-nums">
+                        {displayCount}
+                    </motion.span>
+                </div>
+            </motion.div>
+        </div>
+    );
+};
+
+export default MembershipCounter;
