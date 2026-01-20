@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Lock, ArrowRight, ShieldCheck, Mail, Sparkles } from "lucide-react";
 import Link from "next/link";
+import GlitchText from "@/components/GlitchText";
 import { useRouter } from "next/navigation";
 import { loginUser } from "@/lib/api";
 import { useAuth } from "@/context/AuthContext";
@@ -43,10 +44,11 @@ export default function LoginPage() {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8 }}
                     >
-                        <h2 className="text-6xl font-black italic tracking-tighter mb-6 leading-tight">
-                            ENTER THE <br />
-                            <span className="gradient-text">VAULT</span>
-                        </h2>
+                        <div className="mb-6 leading-tight">
+                            <GlitchText text="ENTER THE" as="h2" className="text-6xl font-black italic tracking-tighter" />
+                            <br />
+                            <GlitchText text="VAULT" as="h2" className="text-6xl font-black italic tracking-tighter gradient-text" />
+                        </div>
                         <p className="text-zinc-500 text-lg font-medium leading-relaxed mb-12">
                             Secure your legacy. Access the exclusive Founders Circle dashboard and manage your digital assets.
                         </p>
@@ -97,7 +99,7 @@ export default function LoginPage() {
                     animate={{ opacity: 1, y: 0 }}
                     className="w-full max-w-md relative z-10 lg:translate-y-10"
                 >
-                    <div className="glass-card p-8 space-y-6 bg-black/40 backdrop-blur-3xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden">
+                    <div className="glass-card p-8 space-y-6 bg-black/40 backdrop-blur-3xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden rgb-border">
                         <div className="space-y-1">
                             <motion.div
                                 initial={{ scale: 0 }}
@@ -106,7 +108,10 @@ export default function LoginPage() {
                             >
                                 <Sparkles size={12} /> Secure Access
                             </motion.div>
-                            <h1 className="text-3xl font-extrabold tracking-tighter">Welcome <span className="gradient-text">Back</span></h1>
+                            <div className="flex items-center gap-2 flex-wrap">
+                                <GlitchText text="Welcome" as="h1" className="text-3xl font-extrabold tracking-tighter" />
+                                <GlitchText text="Back" as="h1" className="text-3xl font-extrabold tracking-tighter gradient-text" />
+                            </div>
                             <p className="text-zinc-500 text-xs font-medium">Enter your credentials to access the circle.</p>
                         </div>
 

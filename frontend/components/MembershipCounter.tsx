@@ -30,7 +30,15 @@ const MembershipCounter = () => {
                     className="relative group cursor-pointer"
                 >
                     <div className="absolute inset-0 bg-brand-gold blur-xl opacity-20 group-hover:opacity-40 transition-opacity rounded-full" />
-                    <div className="relative px-10 py-5 bg-linear-to-r from-brand-gold to-brand-orange-500 rounded-full flex items-center gap-3 border border-white/20 shadow-[0_0_30px_rgba(255,184,0,0.3)]">
+                    <div
+                        className="relative px-10 py-5 rounded-full flex items-center gap-3 border-2 border-transparent shadow-[0_0_30px_rgba(255,184,0,0.3)] bg-clip-padding"
+                        style={{
+                            backgroundImage: "linear-gradient(to right, #FFB800, #F97316), conic-gradient(from 0deg, #ff0000, #ff8000, #ffff00, #00ff00, #00ffff, #0000ff, #8000ff, #ff0080, #ff0000)",
+                            backgroundOrigin: "border-box",
+                            backgroundClip: "padding-box, border-box",
+                            animation: "rgb-spin 4s linear infinite"
+                        }}
+                    >
                         <Zap className="text-white fill-white" size={20} />
                         <span className="text-xl font-black uppercase tracking-wider text-white">Activate Membership</span>
                     </div>
@@ -40,7 +48,8 @@ const MembershipCounter = () => {
             <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="flex items-center gap-3 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm"
+                className="flex items-center gap-3 px-4 py-2 rounded-full border border-transparent backdrop-blur-sm rgb-border"
+                style={{ borderRadius: "9999px" }}
             >
                 <div className="relative flex h-3 w-3">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>

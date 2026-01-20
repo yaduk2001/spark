@@ -22,7 +22,7 @@ export default function Footer() {
                         <a
                             key={i}
                             href={social.href}
-                            className={`nav-link text-zinc-400 transition-all transform hover:scale-125 ${social.color}`}
+                            className={`nav-link text-zinc-400 transition-all transform hover:scale-125 stroke-moving ${social.color}`}
                             aria-label={social.label}
                         >
                             {social.icon}
@@ -40,7 +40,8 @@ export default function Footer() {
                         <Link
                             key={i}
                             href={item.href}
-                            className="px-8 py-3 rounded-full bg-white/5 border border-white/10 hover:bg-brand-purple/20 hover:border-brand-purple/50 transition-all flex items-center gap-2 font-bold text-sm uppercase tracking-widest group"
+                            className="px-8 py-3 rounded-full rgb-border hover:bg-white/5 transition-all flex items-center gap-2 font-bold text-sm uppercase tracking-widest group"
+                            style={{ borderRadius: "9999px" }}
                         >
                             <span className="text-zinc-500 group-hover:text-brand-purple transition-colors">{item.icon}</span>
                             <span className="text-white">{item.name}</span>

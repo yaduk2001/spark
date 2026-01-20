@@ -65,10 +65,10 @@ const ScrollReveal = ({
             viewport={{ once: false, margin: viewportMargin, amount: 0.2 }}
             transition={{
                 type: "spring",
-                stiffness: 250, // Increased stiffness
-                damping: 20,
+                stiffness: 120, // Heavier, more intimidating feel
+                damping: 25,
                 delay: delay,
-                duration: 0.5 // Changed duration
+                duration: 0.8 // Slower duration
             }}
             variants={variants[animation]}
             className={className}

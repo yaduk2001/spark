@@ -31,7 +31,8 @@ const UserTicker = () => {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: -50, scale: 0.9 }}
                     transition={{ duration: 0.5, ease: "backOut" }}
-                    className="glass-card p-4 pr-8 border-brand-purple/30 bg-black/60 flex items-center gap-4 backdrop-blur-xl shadow-[0_10px_40px_rgba(138,43,226,0.2)]"
+                    className="p-4 pr-8 flex items-center gap-4 backdrop-blur-xl shadow-[0_10px_40px_rgba(138,43,226,0.2)] rgb-border"
+                    style={{ borderRadius: "1rem" }}
                 >
                     <div className="relative w-12 h-12 rounded-full border-2 border-brand-gold overflow-hidden bg-zinc-800">
                         {/* Placeholder for user avatar - normally would be dynamic image */}

@@ -9,6 +9,7 @@ import { registerUser, checkAvailability } from "@/lib/api";
 import { useAuth } from "@/context/AuthContext";
 import CountryCodeSelector, { countries, type Country } from "@/components/CountryCodeSelector";
 import { Check, X, Loader2 } from "lucide-react";
+import GlitchText from "@/components/GlitchText";
 
 function RegisterContent() {
     const router = useRouter();
@@ -133,10 +134,11 @@ function RegisterContent() {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8 }}
                     >
-                        <h2 className="text-6xl font-black italic tracking-tighter mb-6 leading-tight">
-                            JOIN THE <br />
-                            <span className="gradient-text">ELITE</span>
-                        </h2>
+                        <div className="mb-6 leading-tight">
+                            <GlitchText text="JOIN THE" as="h2" className="text-6xl font-black italic tracking-tighter" />
+                            <br />
+                            <GlitchText text="ELITE" as="h2" className="text-6xl font-black italic tracking-tighter gradient-text" />
+                        </div>
                         <p className="text-zinc-500 text-lg font-medium leading-relaxed mb-12">
                             The Founders Circle is more than just a membership. It's your bridge to the next era of digital ownership and governance.
                         </p>
@@ -187,7 +189,7 @@ function RegisterContent() {
                     animate={{ opacity: 1, y: 0 }}
                     className="w-full max-w-2xl relative z-10 lg:translate-y-10"
                 >
-                    <div className="glass-card p-8 space-y-6 bg-black/40 backdrop-blur-3xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden">
+                    <div className="glass-card p-8 space-y-6 bg-black/40 backdrop-blur-3xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden rgb-border">
                         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
                             <div className="space-y-1">
                                 <motion.div
@@ -197,7 +199,10 @@ function RegisterContent() {
                                 >
                                     <Sparkles size={12} /> Genesis Membership
                                 </motion.div>
-                                <h1 className="text-3xl font-extrabold tracking-tighter">Create <span className="gradient-text">Account</span></h1>
+                                <div className="flex items-center gap-2 flex-wrap">
+                                    <GlitchText text="Create" as="h1" className="text-3xl font-extrabold tracking-tighter" />
+                                    <GlitchText text="Account" as="h1" className="text-3xl font-extrabold tracking-tighter gradient-text" />
+                                </div>
                                 <p className="text-zinc-500 text-xs font-medium">Join the elite Founders Circle ecosystem today.</p>
                             </div>
                         </div>

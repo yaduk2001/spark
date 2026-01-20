@@ -14,6 +14,9 @@ import Footer from "@/components/Footer";
 import AiNetworkVisual from "@/components/AiNetworkVisual";
 import FloatingMobileTicker from "@/components/FloatingMobileTicker";
 import ScrollReveal from "@/components/ScrollReveal";
+import WhitepaperSection from "@/components/WhitepaperSection";
+import GlitchText from "@/components/GlitchText";
+import { textReveal, revealUp, containerStagger } from "@/utils/animations";
 
 export default function Home() {
   return (
@@ -28,29 +31,27 @@ export default function Home() {
       <section className="relative pt-48 pb-12 px-6 min-h-[90vh] flex items-center overflow-visible">
         <div className="max-w-8xl mx-auto grid lg:grid-cols-2 gap-8 items-center relative z-10">
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
+            variants={containerStagger}
+            initial="hidden"
+            animate="visible"
           >
-            <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-black/40 border border-brand-gold/50 text-sm font-black text-brand-gold mb-12 uppercase tracking-[0.2em] shadow-[0_0_30px_rgba(255,184,0,0.3)] backdrop-blur-md">
+            <motion.div variants={revealUp} className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-black/40 border border-brand-gold/50 text-sm font-black text-brand-gold mb-12 uppercase tracking-[0.2em] shadow-[0_0_30px_rgba(255,184,0,0.3)] backdrop-blur-md hover:bg-brand-gold hover:text-black transition-colors duration-300">
               <span className="w-3 h-3 bg-brand-gold rounded-full animate-pulse-fast" />
-              The Next Evolution
-            </div>
+              WE DON'T LAUNCH. WE ARRIVE.
+            </motion.div>
 
-            <h1 className="text-4xl lg:text-5xl font-black leading-tight mb-8 tracking-tighter uppercase drop-shadow-2xl">
+            <motion.h1 variants={revealUp} className="text-4xl lg:text-5xl font-black leading-tight mb-8 tracking-tighter uppercase drop-shadow-2xl">
               SPARK <span className="text-transparent bg-clip-text bg-gradient-to-b from-white to-zinc-500">GLOBAL</span> <br />
-              <span className="gradient-text animate-shine">
-                REVOLUTION
-              </span>
-            </h1>
+              <GlitchText text="REVOLUTION" as="span" className="gradient-text animate-shine" />
+            </motion.h1>
 
-            <p className="text-lg text-zinc-300 font-bold mb-10 max-w-xl leading-snug border-l-4 border-brand-purple pl-6">
+            <motion.p variants={revealUp} className="text-lg text-zinc-300 font-bold mb-10 max-w-xl leading-snug border-l-4 border-brand-purple pl-6">
               We are building the future of decentralized finance and gaming. <span className="text-white">Join the revolution</span> that empowers communities and rewards participation.
-            </p>
+            </motion.p>
 
-            <div className="mb-16 scale-110 origin-left">
+            <motion.div variants={revealUp} className="mb-16 scale-110 origin-left">
               <MembershipCounter />
-            </div>
+            </motion.div>
           </motion.div>
 
           {/* Floating Coin & Visuals */}
@@ -116,9 +117,9 @@ export default function Home() {
             </ScrollReveal>
 
             <ScrollReveal animation="slide-left" delay={0.2}>
-              <h2 className="text-3xl lg:text-4xl font-black mb-6 uppercase tracking-tighter leading-none">
-                Who <span className="text-zinc-700">We Are</span>
-              </h2>
+              <div className="mb-6">
+                <GlitchText text="WHO WE ARE" as="h2" className="text-3xl lg:text-4xl font-black uppercase tracking-tighter leading-none text-white" />
+              </div>
               <p className="text-xl text-zinc-400 mb-10 leading-relaxed font-medium border-l-2 border-zinc-700 pl-6">
                 Spark Global Tech is not just a platform; it's a movement. We are a collective of visionaries, developers, and community leaders dedicated to democratizing wealth.
               </p>
@@ -154,9 +155,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-brand-purple/5 skew-y-3 transform origin-top-left pointer-events-none" />
         <div className="max-w-7xl mx-auto relative z-10">
           <ScrollReveal animation="fade-up" className="text-center mb-20">
-            <h2 className="text-3xl md:text-4xl font-black mb-5 uppercase tracking-tighter mix-blend-screen text-stroke">
-              Access <span className="text-brand-purple">The Future</span>
-            </h2>
+            <GlitchText text="ACCESS THE FUTURE" as="h2" className="text-3xl md:text-4xl font-black mb-5 uppercase tracking-tighter mix-blend-screen text-stroke text-white block" />
             <p className="text-zinc-500 max-w-2xl mx-auto text-lg font-bold uppercase tracking-widest">Choose your entry point</p>
           </ScrollReveal>
 
@@ -205,7 +204,7 @@ export default function Home() {
 
         <div className="max-w-8xl mx-auto relative z-10">
           <ScrollReveal animation="fade-up" className="mb-20 text-center">
-            <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tighter">Why Choose <span className="gradient-text-purple">Spark Global?</span></h2>
+            <GlitchText text="WHY CHOOSE SPARK GLOBAL?" as="h2" className="text-3xl md:text-4xl font-black uppercase tracking-tighter text-white block" />
           </ScrollReveal>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -241,7 +240,7 @@ export default function Home() {
         <div className="max-w-8xl mx-auto">
           <ScrollReveal animation="fade-up" className="text-center mb-20">
             <span className="text-brand-purple font-black tracking-[0.5em] uppercase mb-4 block animate-pulse">Unlock Potential</span>
-            <h2 className="text-3xl md:text-5xl font-black mb-4 uppercase">4 Types of <span className="gradient-text">Rewards</span></h2>
+            <GlitchText text="4 TYPES OF REWARDS" as="h2" className="text-3xl md:text-5xl font-black mb-4 uppercase text-white block" />
           </ScrollReveal>
 
           <div className="grid lg:grid-cols-2 gap-10 mb-20">
@@ -301,7 +300,7 @@ export default function Home() {
           {/* Reward Type 3: Buying Rewards Tier */}
           <div className="mb-24">
             <ScrollReveal animation="fade-up" className="text-center mb-12">
-              <h3 className="text-4xl font-black mb-8 text-center uppercase tracking-tight">3. Spark Community Buying Rewards</h3>
+              <GlitchText text="3. SPARK COMMUNITY BUYING REWARDS" as="h3" className="text-3xl md:text-4xl font-black mb-8 uppercase tracking-tight text-white block" />
             </ScrollReveal>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               <ScrollReveal animation="zoom-in" delay={0.1}>
@@ -346,10 +345,10 @@ export default function Home() {
           <div className="glass-card-heavy p-12 border-brand-purple/20 mb-24 bg-gradient-to-r from-brand-purple/10 via-black to-brand-indigo/10 relative overflow-hidden rgb-border">
             <div className="absolute top-0 right-0 w-64 h-64 bg-brand-purple/20 blur-[100px] rounded-full animate-pulse" />
 
-            <h3 className="text-4xl font-black mb-10 flex items-center gap-4 uppercase relative z-10">
-              <Coins className="text-brand-gold animate-spin-slow" size={40} />
-              Staking Calculation Examples
-            </h3>
+            <div className="flex items-center gap-4 mb-10 relative z-10">
+              <Coins className="text-brand-gold animate-spin-slow shrink-0" size={40} />
+              <GlitchText text="STAKING CALCULATION EXAMPLES" as="h3" className="text-3xl md:text-4xl font-black uppercase tracking-tight text-white block" />
+            </div>
             <div className="grid md:grid-cols-2 gap-x-16 gap-y-6 font-mono text-base text-zinc-300 relative z-10">
               <div className="flex justify-between border-b border-white/10 py-3 hover:bg-white/5 px-2 transition-colors">
                 <span>$0.875 x 6 Tokens</span>
@@ -383,7 +382,7 @@ export default function Home() {
             <div className="absolute inset-0 bg-brand-purple/5 blur-[100px] rounded-full" />
             <div className="relative z-10">
               <div className="text-center mb-16">
-                <h3 className="text-5xl font-black uppercase"><span className="text-brand-gold">Extra</span> Community Rewards</h3>
+                <GlitchText text="EXTRA COMMUNITY REWARDS" as="h3" className="text-3xl md:text-5xl font-black uppercase text-white block" />
                 <p className="text-zinc-500 text-xl mt-2 font-bold tracking-widest uppercase">Eligible for Spark NFT Token Staking Community Only</p>
               </div>
 
@@ -418,7 +417,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-zinc-800/30 via-black to-black z-0 pointer-events-none" />
         <div className="max-w-7xl mx-auto relative z-10">
           <ScrollReveal animation="fade-up" className="text-center mb-24">
-            <h2 className="text-3xl md:text-5xl font-black mb-4 uppercase tracking-tighter text-white">Future <span className="gradient-text">Plans</span></h2>
+            <GlitchText text="FUTURE PLANS" as="h2" className="text-3xl md:text-5xl font-black mb-4 uppercase tracking-tighter text-white block" />
             <p className="text-lg text-zinc-400 font-medium max-w-2xl mx-auto">The roadmap to global adoption and technological dominance.</p>
           </ScrollReveal>
 
@@ -498,7 +497,7 @@ export default function Home() {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-gold/10 text-brand-gold text-xs font-bold uppercase tracking-widest mb-4">
               <Gem size={12} /> Member Perks
             </div>
-            <h2 className="text-4xl font-black mb-4">User <span className="text-white">Benefits</span></h2>
+            <GlitchText text="USER BENEFITS" as="h2" className="text-4xl font-black mb-4 text-white block" />
             <p className="text-zinc-500">Everything you need to succeed in the digital economy.</p>
           </ScrollReveal>
 
@@ -523,6 +522,7 @@ export default function Home() {
         </div>
       </section>
 
+      <WhitepaperSection />
       <Footer />
     </div>
   );
