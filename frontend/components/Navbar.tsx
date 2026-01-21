@@ -18,7 +18,7 @@ const Navbar = () => {
     const navLinks = [
         { name: "Home", href: "/" },
         { name: "About", href: "/about" },
-        { name: "Mint NFT", href: "/mint" },
+        { name: "Mint SPK Token", href: "/mint" },
         { name: "Presale", href: "/presale" },
         { name: "Ecosystem", href: "/ecosystem" },
     ];
@@ -35,14 +35,11 @@ const Navbar = () => {
                 >
                     {/* Logo */}
                     <Link href="/" className="flex items-center gap-2 group">
-                        {/* Coin Logo on Left */}
-                        <div className="relative w-10 h-10 rounded-full border-2 border-brand-gold/50 shadow-[0_0_15px_rgba(255,215,0,0.3)] overflow-hidden animate-pulse">
-                            <img src="/images/coin.jpeg" alt="Spark Coin" className="w-full h-full object-cover" />
+                        <div className="w-10 h-10 bg-brand-gold/10 rounded-full flex items-center justify-center border border-brand-gold/20 group-hover:border-brand-gold/50 transition-colors">
+                            <span className="text-xl">⚡</span>
                         </div>
-
-
-                        <span className="text-xl font-black tracking-tighter hidden md:block">
-                            SPARK<span className="text-brand-purple">GLOBAL</span>
+                        <span className="text-xl font-black tracking-tighter uppercase hidden md:block">
+                            Spaark <span className="text-brand-purple">Exchange</span>
                         </span>
                     </Link>
 

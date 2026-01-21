@@ -22,6 +22,7 @@ function RegisterContent() {
         phoneNumber: "",
         username: "",
         password: "",
+        confirmPassword: "",
         referralCode: ""
     });
     const [error, setError] = useState("");
@@ -105,6 +106,17 @@ function RegisterContent() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setError("");
+
+        if (formData.password !== formData.confirmPassword) {
+            setError("Passwords do not match");
+            return;
+        }
+
+        if (!formData.referralCode) {
+            setError("Referral code is required");
+            return;
+        }
+
         setLoading(true);
 
         try {
@@ -305,7 +317,7 @@ function RegisterContent() {
                                     </div>
                                 </div>
 
-                                <div className="md:col-span-2 space-y-1.5">
+                                <div className="space-y-1.5">
                                     <label className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest ml-1">Secure Password</label>
                                     <div className="relative group">
                                         <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-600 group-focus-within:text-brand-purple transition-colors" size={16} />
@@ -320,12 +332,28 @@ function RegisterContent() {
                                     </div>
                                 </div>
 
+                                <div className="space-y-1.5">
+                                    <label className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest ml-1">Confirm Password</label>
+                                    <div className="relative group">
+                                        <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-600 group-focus-within:text-brand-purple transition-colors" size={16} />
+                                        <input
+                                            type="password"
+                                            required
+                                            placeholder="••••••••"
+                                            value={formData.confirmPassword}
+                                            onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
+                                            className="w-full bg-black/60 border border-white/5 rounded-xl py-3 pl-11 pr-4 outline-none focus:border-brand-purple/50 focus:bg-black/80 transition-all text-sm font-medium text-white placeholder:text-zinc-700"
+                                        />
+                                    </div>
+                                </div>
+
                                 <div className="md:col-span-2 space-y-1.5">
-                                    <label className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest ml-1">Referral Code (Optional)</label>
+                                    <label className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest ml-1">Referral Code</label>
                                     <div className="relative group">
                                         <Sparkles className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-600 group-focus-within:text-brand-purple transition-colors" size={16} />
                                         <input
                                             type="text"
+                                            required
                                             placeholder="Enter referral code"
                                             value={formData.referralCode}
                                             onChange={(e) => setFormData({ ...formData, referralCode: e.target.value })}

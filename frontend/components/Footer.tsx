@@ -49,10 +49,18 @@ export default function Footer() {
                     ))}
                 </div>
 
+                {/* Brand */}
+                <div className="flex items-center gap-3 mb-6">
+                    <div className="w-10 h-10 bg-brand-gold/10 rounded-full flex items-center justify-center border border-brand-gold/20">
+                        <span className="text-xl">⚡</span>
+                    </div>
+                    <span className="text-xl font-black tracking-tighter uppercase">Spaark Exchange</span>
+                </div>
+
                 {/* Copyright */}
                 <div className="text-center">
                     <p className="text-zinc-600 text-xs uppercase tracking-widest font-bold">
-                        © {new Date().getFullYear()} Spark Global Tech. All rights reserved.
+                        © {new Date().getFullYear()} Spaark Exchange. All rights reserved.
                     </p>
                 </div>
             </div>

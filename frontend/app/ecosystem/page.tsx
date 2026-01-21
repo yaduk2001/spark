@@ -6,14 +6,14 @@ import { ShieldCheck, ShieldAlert, Lock, ArrowRight, Zap, Globe, Github, Twitter
 import Link from "next/link";
 
 export default function EcosystemGate() {
-    const [hasNFT, setHasNFT] = useState<boolean | null>(null);
+    const [hasToken, setHasToken] = useState<boolean | null>(null);
     const [checking, setChecking] = useState(false);
 
     const simulateCheck = () => {
         setChecking(true);
         setTimeout(() => {
             // Simulate 70% chance of success for demo purposes
-            setHasNFT(Math.random() > 0.3);
+            setHasToken(Math.random() > 0.3);
             setChecking(false);
         }, 2000);
     };
@@ -22,7 +22,7 @@ export default function EcosystemGate() {
         <div className="min-h-screen pt-32 pb-20 px-6 flex flex-col items-center justify-center">
             <div className="max-w-2xl w-full text-center">
                 <AnimatePresence mode="wait">
-                    {hasNFT === null ? (
+                    {hasToken === null ? (
                         <motion.div
                             key="gateway"
                             initial={{ opacity: 0, scale: 0.9 }}
@@ -36,7 +36,7 @@ export default function EcosystemGate() {
                             <div>
                                 <h1 className="text-4xl font-bold mb-4">Founder's <span className="text-brand-purple">Gate</span></h1>
                                 <p className="text-zinc-500">
-                                    This area is restricted to Genesis Founder NFT holders. Please verify your wallet to access the private ecosystem.
+                                    This area is restricted to Genesis Founder SPK Token holders. Please verify your wallet to access the private ecosystem.
                                 </p>
                             </div>
                             <button
@@ -54,7 +54,7 @@ export default function EcosystemGate() {
                                 )}
                             </button>
                         </motion.div>
-                    ) : hasNFT ? (
+                    ) : hasToken ? (
                         <motion.div
                             key="success"
                             initial={{ opacity: 0, y: 20 }}
@@ -67,7 +67,7 @@ export default function EcosystemGate() {
                             <div>
                                 <h1 className="text-4xl font-bold mb-4 text-green-500">Access Granted</h1>
                                 <p className="text-zinc-400">
-                                    Welcome, Founder. We've detected a Genesis NFT in your wallet. You now have full access to the inner circle.
+                                    Welcome, Founder. We've detected a Genesis SPK Token in your wallet. You now have full access to the inner circle.
                                 </p>
                             </div>
 
@@ -82,7 +82,7 @@ export default function EcosystemGate() {
                                 </Link>
                             </div>
 
-                            <button onClick={() => setHasNFT(null)} className="text-zinc-600 text-xs hover:text-white transition-colors">
+                            <button onClick={() => setHasToken(null)} className="text-zinc-600 text-xs hover:text-white transition-colors">
                                 Disconnect Wallet
                             </button>
                         </motion.div>
@@ -99,15 +99,15 @@ export default function EcosystemGate() {
                             <div>
                                 <h1 className="text-4xl font-bold mb-4 text-red-500">Access Denied</h1>
                                 <p className="text-zinc-400">
-                                    No Genesis Founder NFT was detected in this wallet. To proceed, you must own at least one Membership Card.
+                                    No Genesis Founder SPK Token was detected in this wallet. To proceed, you must own at least one Membership Card.
                                 </p>
                             </div>
 
                             <div className="flex flex-col gap-4">
                                 <Link href="/mint" className="w-full py-5 bg-white text-black rounded-2xl font-bold flex items-center justify-center gap-2 hover:bg-zinc-200 transition-all">
-                                    PURCHASE NFT <ArrowRight size={20} />
+                                    PURCHASE SPK TOKEN <ArrowRight size={20} />
                                 </Link>
-                                <button onClick={() => setHasNFT(null)} className="py-4 glass-card text-sm font-bold">
+                                <button onClick={() => setHasToken(null)} className="py-4 glass-card text-sm font-bold">
                                     TRY ANOTHER WALLET
                                 </button>
                             </div>

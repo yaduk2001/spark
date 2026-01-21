@@ -25,8 +25,8 @@ export default function NFTCoin({ className = "", size = 400 }: NFTCoinProps) {
             >
                 {/* Coin Image */}
                 <Image
-                    src="/images/coin.jpeg"
-                    alt="Spark NFT Coin"
+                    src="/images/coin_new.jpg"
+                    alt="Spaark Exchange Coin"
                     width={size}
                     height={size}
                     className="drop-shadow-[0_0_50px_rgba(255,184,0,0.5)] object-cover rounded-full"

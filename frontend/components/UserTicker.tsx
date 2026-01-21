@@ -8,7 +8,7 @@ const mockUsers = [
     { name: "Alex Crypto", id: "ID: #8821" },
     { name: "Sarah Chain", id: "ID: #9932" },
     { name: "Mike Hodl", id: "ID: #1120" },
-    { name: "Jessica NFT", id: "ID: #4451" },
+    { name: "Jessica SPK", id: "ID: #4451" },
     { name: "David Spark", id: "ID: #7721" },
 ];
 

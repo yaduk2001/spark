@@ -64,8 +64,12 @@ export default function WhitepaperSection() {
                             </div>
 
                             <div className="relative z-10">
-                                <h3 className="text-3xl font-black text-white uppercase tracking-tight mb-2">Technical <br />Manifesto</h3>
-                                <p className="text-zinc-500 text-xs uppercase tracking-widest">System Architecture & Tokenomics</p>
+                                <h2 className="text-3xl md:text-4xl font-black mb-6">
+                                    <span className="gradient-text">Spaark Exchange</span> Whitepaper
+                                </h2>
+                                <p className="text-zinc-400 text-lg mb-8 max-w-2xl mx-auto">
+                                    Dive deep into the technical architecture, tokenomics, and strategic vision of the Spaark Exchange ecosystem.
+                                </p>
                             </div>
 
                             {/* Hover Reveal Line */}

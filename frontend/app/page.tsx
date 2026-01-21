@@ -16,11 +16,13 @@ import FloatingMobileTicker from "@/components/FloatingMobileTicker";
 import ScrollReveal from "@/components/ScrollReveal";
 import WhitepaperSection from "@/components/WhitepaperSection";
 import GlitchText from "@/components/GlitchText";
-import { textReveal, revealUp, containerStagger } from "@/utils/animations";
+import CinematicBackground from "@/components/CinematicBackground";
+import { textReveal, revealUp, containerStagger, cinematicReveal } from "@/utils/animations";
 
 export default function Home() {
   return (
-    <div className="relative overflow-hidden bg-black text-white selection:bg-brand-purple/30">
+    <div className="relative overflow-hidden text-white selection:bg-brand-purple/30">
+      <CinematicBackground />
       <UserTicker />
 
       {/* Abstract Background Gradients */}
@@ -28,24 +30,24 @@ export default function Home() {
       <div className="fixed bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-brand-indigo/20 blur-[150px] rounded-full pointer-events-none z-[-1]" />
 
       {/* Hero Section */}
-      <section className="relative pt-32 lg:pt-48 pb-12 px-6 min-h-[80vh] lg:min-h-[90vh] flex items-center overflow-visible">
+      <section className="relative pt-24 lg:pt-48 pb-8 lg:pb-12 px-4 lg:px-6 min-h-[80vh] lg:min-h-[90vh] flex items-center overflow-visible">
         <div className="max-w-8xl mx-auto grid lg:grid-cols-2 gap-8 items-center relative z-10">
           <motion.div
             variants={containerStagger}
             initial="hidden"
             animate="visible"
           >
-            <motion.div variants={revealUp} className="inline-flex items-center gap-3 px-4 py-2 lg:px-6 lg:py-3 rounded-full bg-black/40 border border-brand-gold/50 text-xs lg:text-sm font-black text-brand-gold mb-8 lg:mb-12 uppercase tracking-[0.2em] shadow-[0_0_30px_rgba(255,184,0,0.3)] backdrop-blur-md hover:bg-brand-gold hover:text-black transition-colors duration-300">
+            <motion.div variants={cinematicReveal} className="inline-flex items-center gap-3 px-4 py-2 lg:px-6 lg:py-3 rounded-full bg-black/40 border border-brand-gold/50 text-xs lg:text-sm font-black text-brand-gold mb-8 lg:mb-12 uppercase tracking-[0.2em] shadow-[0_0_30px_rgba(255,184,0,0.3)] backdrop-blur-md hover:bg-brand-gold hover:text-black transition-colors duration-300">
               <span className="w-2 h-2 lg:w-3 lg:h-3 bg-brand-gold rounded-full animate-pulse-fast" />
               WE DON'T LAUNCH. WE ARRIVE.
             </motion.div>
 
-            <motion.h1 variants={revealUp} className="text-3xl md:text-4xl lg:text-5xl font-black leading-tight mb-6 lg:mb-8 tracking-tighter uppercase drop-shadow-2xl">
-              SPARK <span className="text-transparent bg-clip-text bg-gradient-to-b from-white to-zinc-500">GLOBAL</span> <br />
+            <motion.h1 variants={cinematicReveal} className="text-3xl md:text-4xl lg:text-5xl font-black leading-tight mb-6 lg:mb-8 tracking-tighter uppercase drop-shadow-2xl">
+              SPAARK <span className="text-transparent bg-clip-text bg-gradient-to-b from-white to-zinc-500">EXCHANGE</span> <br />
               <GlitchText text="REVOLUTION" as="span" className="gradient-text animate-shine" />
             </motion.h1>
 
-            <motion.p variants={revealUp} className="text-base lg:text-lg text-zinc-300 font-bold mb-8 lg:mb-10 max-w-xl leading-snug border-l-4 border-brand-purple pl-4 lg:pl-6">
+            <motion.p variants={cinematicReveal} className="text-base lg:text-lg text-zinc-300 font-bold mb-8 lg:mb-10 max-w-xl leading-snug border-l-4 border-brand-purple pl-4 lg:pl-6">
               We are building the future of decentralized finance and gaming. <span className="text-white">Join the revolution</span> that empowers communities and rewards participation.
             </motion.p>
 
@@ -83,9 +85,9 @@ export default function Home() {
       </section>
 
       {/* Who We Are & Mission Section */}
-      <section className="py-12 lg:py-16 px-6 relative bg-zinc-950">
+      <section className="py-8 lg:py-16 px-4 lg:px-6 relative bg-zinc-950/50 backdrop-blur-sm">
         <div className="max-w-8xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <ScrollReveal animation="slide-right" className="flex flex-col gap-6">
               {/* Global Connectivity Card with Background Visual */}
               <div className="glass-card-heavy rgb-border min-h-[400px] lg:h-[500px] flex flex-col justify-end p-6 lg:p-10 group relative overflow-hidden">
@@ -122,13 +124,13 @@ export default function Home() {
                 <GlitchText text="WHO WE ARE" as="h2" className="text-3xl lg:text-4xl font-black uppercase tracking-tighter leading-none text-white" />
               </div>
               <p className="text-xl text-zinc-400 mb-10 leading-relaxed font-medium border-l-2 border-zinc-700 pl-6">
-                Spark Global Tech is not just a platform; it's a movement. We are a collective of visionaries, developers, and community leaders dedicated to democratizing wealth.
+                Spaark Global Tech is a global technology and digital innovation company headquartered in Dubai and Australia, strategically positioned to operate across International Markets. We focus on developing scalable digital platforms across Financial Technology, Online Commerce, Blockchain, Infrastructure, and Digital Entertainment. Our organization is built on strong governance, long-term strategic planning, and sustainable innovation. By combining advanced technology with structured business models, Spaark Global Tech aims to create a connected digital ecosystem that supports growth for both the company and its global user community.
               </p>
 
               <div className="space-y-3">
                 {[
-                  { title: "Mission", desc: "To create a sustainable, user-owned digital economy.", icon: <Globe size={24} /> },
-                  { title: "Vision", desc: "A world where every digital interaction creates value.", icon: <Zap size={24} /> },
+                  { title: "Vision", desc: "Our Vision is to become a globally recognized technology enterprise that connects Digital, Finance, Online Commerce, and Blockchain Innovation while providing structured opportunities for customers and partners to build sustainable, High-Growth Online Businesses within the Spaark Ecosystem.", icon: <Zap size={24} /> },
+                  { title: "Mission", desc: "Our Mission is to develop secure, scalable, and future-ready digital platforms that empower individuals and businesses to participate in the Global Digital Economy through transparent and innovative online business models.", icon: <Globe size={24} /> },
                   { title: "Values", desc: "Transparency, Community, and Innovation.", icon: <ShieldCheck size={24} /> }
                 ].map((item, i) => (
                   <motion.div
@@ -160,7 +162,7 @@ export default function Home() {
             <p className="text-zinc-500 max-w-2xl mx-auto text-lg font-bold uppercase tracking-widest">Choose your entry point</p>
           </ScrollReveal>
 
-          <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
             <ScrollReveal animation="slide-right" delay={0.1} className="h-full">
               <div className="transform hover:scale-105 transition-transform duration-300 h-full rgb-border">
                 <SubscriptionPriceCard
@@ -170,7 +172,7 @@ export default function Home() {
                     "Entry level access",
                     "Community participation",
                     "Basic reward eligibility",
-                    "NFT Token Purchase Access"
+                    "SPK Token Purchase Access"
                   ]}
                   delay={0.1}
                 />
@@ -184,7 +186,7 @@ export default function Home() {
                   price="$50"
                   isPopular={true}
                   features={[
-                    "90,000 Spark NFT Tokens included",
+                    "9000 Spark SPK Tokens included",
                     "Withdrawal option enabled (w/ 2nd purchase)",
                     "Full Staking Rewards",
                     "Community Building Bonuses",
@@ -199,7 +201,7 @@ export default function Home() {
       </section>
 
       {/* Why Choose Spark - Card Structure */}
-      <section className="py-16 lg:py-24 px-6 bg-black relative overflow-hidden">
+      <section className="py-16 lg:py-24 px-6 bg-black/40 backdrop-blur-sm relative overflow-hidden">
         {/* Aggressive Grid Background */}
         <div className="absolute inset-0 bg-[url('/images/grid.svg')] bg-center opacity-20" />
 
@@ -208,7 +210,7 @@ export default function Home() {
             <GlitchText text="WHY CHOOSE SPARK GLOBAL?" as="h2" className="text-3xl md:text-4xl font-black uppercase tracking-tighter text-white block" />
           </ScrollReveal>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
             {[
               { title: "Decentralized Power", desc: "Full control of your assets with our non-custodial architecture.", icon: <Network size={40} /> },
               { title: "Instant Rewards", desc: "Real-time settlement for all community and staking rewards.", icon: <Zap size={40} /> },
@@ -236,15 +238,15 @@ export default function Home() {
       </section>
 
       {/* Rewards Core Section */}
-      <section className="py-16 lg:py-24 px-6 bg-zinc-950 relative" id="rewards">
+      <section className="py-16 lg:py-24 px-6 bg-zinc-950/50 backdrop-blur-sm relative" id="rewards">
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-brand-purple to-transparent" />
         <div className="max-w-8xl mx-auto">
           <ScrollReveal animation="fade-up" className="text-center mb-12 lg:mb-20">
             <span className="text-brand-purple font-black tracking-[0.5em] uppercase mb-4 block animate-pulse text-sm lg:text-base">Unlock Potential</span>
-            <GlitchText text="4 TYPES OF REWARDS" as="h2" className="text-3xl md:text-5xl font-black mb-4 uppercase text-white block" />
+            <GlitchText text="8 TYPES OF REWARDS" as="h2" className="text-3xl md:text-5xl font-black mb-4 uppercase text-white block" />
           </ScrollReveal>
 
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 mb-16 lg:mb-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-10 mb-12 lg:mb-20">
             {/* Reward Type 1 */}
             <ScrollReveal animation="fade-right" delay={0.1}>
               <div className="glass-card-heavy rgb-border p-2 hover:bg-brand-purple/5 transition-colors">
@@ -254,19 +256,19 @@ export default function Home() {
                   items={[
                     {
                       label: "Initial Allocation",
-                      value: "90,000 Tokens",
+                      value: "9000 SPK Tokens",
                       subtext: "With $50 Subscription"
                     },
                     {
                       label: "Withdrawal Condition",
-                      value: "Buy 2nd NFT",
-                      subtext: "Must purchase 2 more Spark NFT Tokens ($50 x 2 = $100). Total 90,000 Tokens."
+                      value: "Buy 2nd SPK",
+                      subtext: "Must purchase 2 more Spark SPK Tokens ($50 x 2 = $100). Total 9000 SPK Tokens."
                     },
                     {
                       label: "Benefit",
                       value: "Unlock Withdrawals",
                       highlight: true,
-                      subtext: "$10 NFT Token withdrawal option enables and reward transfers automatically."
+                      subtext: "$10 SPK Token withdrawal option enables and reward transfers automatically."
                     }
                   ]}
                 />
@@ -284,7 +286,7 @@ export default function Home() {
                       label: "Referral Reward",
                       value: "$15.00",
                       highlight: true,
-                      subtext: "Automatically transferred to wallet when someone buys Spark NFT Token under your community."
+                      subtext: "Automatically transferred to wallet when someone buys Spark SPK Token under your community."
                     },
                     {
                       label: "Staking Access",
@@ -296,6 +298,102 @@ export default function Home() {
                 />
               </div>
             </ScrollReveal>
+
+            {/* Reward Type 4: Withdrawal Income (New) */}
+            <ScrollReveal animation="fade-up" delay={0.3}>
+              <div className="glass-card-heavy rgb-border p-2 hover:bg-brand-gold/5 transition-colors">
+                <RewardCard
+                  title="4. Withdrawal Income"
+                  icon={<Coins size={32} className="animate-pulse text-brand-gold" />}
+                  items={[
+                    {
+                      label: "Global Dividend",
+                      value: "5% Distribution",
+                      highlight: true,
+                      subtext: "Distributed among active community members from total ecosystem withdrawals."
+                    },
+                    {
+                      label: "Frequency",
+                      value: "Instant",
+                      subtext: "Settled in real-time as withdrawals occur across the network."
+                    }
+                  ]}
+                  delay={0.3}
+                />
+              </div>
+            </ScrollReveal>
+
+            {/* Reward Type 5: 1st Level Growth Partners (New) */}
+            <ScrollReveal animation="fade-up" delay={0.4}>
+              <div className="glass-card-heavy rgb-border p-2 hover:bg-brand-purple/5 transition-colors">
+                <RewardCard
+                  title="5. 1st Level Growth Partners"
+                  icon={<Network size={32} className="text-brand-purple" />}
+                  items={[
+                    {
+                      label: "Direct Bonus",
+                      value: "$2.50 / Partner",
+                      subtext: "Monthly retention bonus for maintaining active 1st level growth partners."
+                    },
+                    {
+                      label: "Performance Pool",
+                      value: "Eligible",
+                      highlight: true,
+                      subtext: "Contributes toward your rank achiever status."
+                    }
+                  ]}
+                  delay={0.4}
+                />
+              </div>
+            </ScrollReveal>
+
+            {/* Reward Type 6: 2nd Level Growth Partners (New) */}
+            <ScrollReveal animation="fade-up" delay={0.5}>
+              <div className="glass-card-heavy rgb-border p-2 hover:bg-brand-blue/5 transition-colors">
+                <RewardCard
+                  title="6. 2nd Level Growth Partners"
+                  icon={<Users size={32} className="text-brand-blue" />}
+                  items={[
+                    {
+                      label: "Override Bonus",
+                      value: "10% Reward",
+                      highlight: true,
+                      subtext: "Earn based on the combined volume and activity of your secondary level partners."
+                    },
+                    {
+                      label: "Network Depth",
+                      value: "36 Partners",
+                      subtext: "Maximized when your second level reaches full capacity."
+                    }
+                  ]}
+                  delay={0.5}
+                />
+              </div>
+            </ScrollReveal>
+
+            {/* Reward Type 7: 3rd Level Growth Partners (New) */}
+            <ScrollReveal animation="fade-up" delay={0.6}>
+              <div className="glass-card-heavy rgb-border p-2 hover:bg-brand-indigo/5 transition-colors">
+                <RewardCard
+                  title="7. 3rd Level Growth Partners"
+                  icon={<Globe size={32} className="text-brand-indigo" />}
+                  items={[
+                    {
+                      label: "Global Pool Entry",
+                      value: "Entry Granted",
+                      highlight: true,
+                      subtext: "Special access to the 3rd level global revenue share pool."
+                    },
+                    {
+                      label: "Threshold",
+                      value: "216 Partners",
+                      subtext: "Requires a fully established 3rd level team of growth partners."
+                    }
+                  ]}
+                  delay={0.6}
+                />
+              </div>
+            </ScrollReveal>
           </div>
 
           {/* Reward Type 3: Buying Rewards Tier */}
@@ -303,7 +401,7 @@ export default function Home() {
             <ScrollReveal animation="fade-up" className="text-center mb-8 lg:mb-12">
               <GlitchText text="3. SPARK COMMUNITY BUYING REWARDS" as="h3" className="text-2xl md:text-4xl font-black mb-6 lg:mb-8 uppercase tracking-tight text-white block" />
             </ScrollReveal>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
               <ScrollReveal animation="zoom-in" delay={0.1}>
                 <div className="glass-card hover:bg-white/10 p-1 rgb-border">
                   <RewardCard
@@ -352,59 +450,64 @@ export default function Home() {
             </div>
             <div className="grid md:grid-cols-2 gap-x-16 gap-y-4 lg:gap-y-6 font-mono text-sm lg:text-base text-zinc-300 relative z-10">
               <div className="flex flex-col sm:flex-row sm:justify-between border-b border-white/10 py-3 hover:bg-white/5 px-2 transition-colors">
-                <span>$0.875 x 6 Tokens</span>
+                <span>$0.875 x 6 Team Growth Partners</span>
                 <span className="text-brand-gold font-bold text-lg lg:text-xl">$5.25</span>
               </div>
               <div className="flex flex-col sm:flex-row sm:justify-between border-b border-white/10 py-3 hover:bg-white/5 px-2 transition-colors">
-                <span>$0.875 x 36 Tokens</span>
+                <span>$0.875 x 36 Team Growth Partners</span>
                 <span className="text-brand-gold font-bold text-lg lg:text-xl">$31.50</span>
               </div>
               <div className="flex flex-col sm:flex-row sm:justify-between border-b border-white/10 py-3 hover:bg-white/5 px-2 transition-colors">
-                <span>$1.3125 x 216 Tokens</span>
+                <span>$1.3125 x 216 Team Growth Partners</span>
                 <span className="text-brand-gold font-bold text-lg lg:text-xl">$283.50</span>
               </div>
               <div className="flex flex-col sm:flex-row sm:justify-between border-b border-white/10 py-3 hover:bg-white/5 px-2 transition-colors">
-                <span>$1.3125 x 1,296 Tokens</span>
+                <span>$1.3125 x 1,296 Team Growth Partners</span>
                 <span className="text-brand-gold font-bold text-lg lg:text-xl">$1,701.00</span>
               </div>
               <div className="flex flex-col sm:flex-row sm:justify-between border-b border-white/10 py-3 hover:bg-white/5 px-2 transition-colors">
-                <span>$1.75 x 7,776 Tokens</span>
+                <span>$1.75 x 7,776 Team Growth Partners</span>
                 <span className="text-brand-gold font-bold text-lg lg:text-xl">$13,608.00</span>
               </div>
               <div className="flex flex-col sm:flex-row sm:justify-between border-b border-white/10 py-3 hover:bg-white/5 px-2 transition-colors scale-100 lg:scale-105 origin-left">
-                <span className="text-brand-purple font-bold">$2.625 x 46,656 Tokens</span>
+                <span className="text-brand-purple font-bold">$2.625 x 46,656 Team Growth Partners</span>
                 <span className="text-green-400 font-black text-xl lg:text-2xl text-glow">$122,472.00</span>
+              </div>
+
+              {/* Total Earning */}
+              <div className="col-span-full mt-6 p-6 rounded-2xl bg-brand-gold/10 border border-brand-gold/30 flex justify-between items-center group hover:bg-brand-gold/20 transition-all">
+                <span className="text-white font-black uppercase tracking-widest text-lg lg:text-xl">Total team building earning</span>
+                <span className="text-white font-black text-2xl lg:text-4xl text-glow-gold animate-pulse">$138,101.25</span>
               </div>
             </div>
           </div>
 
-          {/* Reward Type 4: Extra Staking Rewards */}
+          {/* Reward Type 8: Extra Staking Rewards */}
           <div className="relative">
             <div className="absolute inset-0 bg-brand-purple/5 blur-[100px] rounded-full" />
             <div className="relative z-10">
               <div className="text-center mb-12 lg:mb-16">
-                <GlitchText text="EXTRA COMMUNITY REWARDS" as="h3" className="text-2xl md:text-5xl font-black uppercase text-white block" />
-                <p className="text-zinc-500 text-base lg:text-xl mt-2 font-bold tracking-widest uppercase">Eligible for Spark NFT Token Staking Community Only</p>
+                <GlitchText text="8. RANK ACHIEVERS REWARDS" as="h3" className="text-2xl md:text-5xl font-black uppercase text-white block" />
+                <p className="text-zinc-500 text-base lg:text-xl mt-2 font-bold tracking-widest uppercase">Eligible for Spark Staking Community Only</p>
               </div>
 
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                 {[
-                  { count: "6", reward: "$2.40", label: "1st Extra Reward" },
-                  { count: "36", reward: "$10.80", label: "2nd Extra Reward" },
-                  { count: "216", reward: "$54.00", label: "3rd Extra Reward" },
-                  { count: "1,296", reward: "$259.20", label: "4th Extra Reward" },
-                  { count: "7,776", reward: "$1,555.20", label: "5th Extra Reward" },
-                  { count: "46,656", reward: "$6,998.40", label: "6th Extra Reward" },
+                  { reward: "$2.40", label: "1st Rank Achievement Reward", subtext: "1st Direct 6 enrollment Supervisor" },
+                  { reward: "$10.80", label: "2nd Rank Achievement Reward", subtext: "2nd level 36 team growth partners Assistant Manager" },
+                  { reward: "$54.00", label: "3rd Rank Achievement Reward", subtext: "3rd 216 team growth partners Manager" },
+                  { reward: "$259.20 + Mobile Phone", label: "4th Rank Achievement Reward", subtext: "1296 Team Growth Partners Senior Manager" },
+                  { reward: "$1,555.20 + Bike Fund", label: "5th Rank Achievement Reward", subtext: "7776 Team Growth Partners Regional Manager" },
+                  { reward: "$6,998.40 + Car Fund", label: "6th Rank Achievement Reward", subtext: "46656 Team Growth Partners Director" },
                 ].map((item, i) => (
                   <motion.div
                     key={i}
                     whileHover={{ y: -10, scale: 1.05 }}
-                    className="bg-black/60 border-double border-4 border-transparent p-6 lg:p-8 rounded-[2rem] flex flex-col items-center text-center hover:bg-brand-purple/20 bg-origin-border transition-all shadow-xl group rgb-border"
+                    className="bg-black/60 border-double border-4 border-transparent p-6 lg:p-8 rounded-[2rem] flex flex-col items-center text-center hover:bg-brand-purple/20 bg-origin-border transition-all shadow-xl group rgb-border h-full"
                   >
-                    <div className="text-4xl lg:text-5xl font-black text-white mb-2 group-hover:scale-110 transition-transform">{item.count}</div>
-                    <div className="text-[10px] lg:text-xs uppercase text-zinc-500 tracking-widest mb-4 lg:mb-6 font-bold">NFT Tokens Purchased</div>
-                    <div className="text-2xl lg:text-3xl font-black text-brand-gold mb-4 text-glow-gold">{item.reward}</div>
-                    <div className="text-[10px] lg:text-xs text-black font-bold bg-brand-purple px-3 py-1 lg:px-4 lg:py-2 rounded-full uppercase tracking-wider shadow-[0_0_15px_rgba(138,43,226,0.5)]">{item.label}</div>
+                    <div className="text-xl lg:text-2xl font-black text-white mb-6 uppercase tracking-wider leading-tight min-h-[3.5rem] flex items-center">{item.subtext}</div>
+                    <div className="text-3xl lg:text-4xl font-black text-brand-gold mb-6 text-glow-gold">{item.reward}</div>
+                    <div className="mt-auto text-[10px] lg:text-xs text-black font-bold bg-brand-purple px-4 py-2 rounded-full uppercase tracking-wider shadow-[0_0_15px_rgba(138,43,226,0.5)]">{item.label}</div>
                   </motion.div>
                 ))}
               </div>
@@ -414,7 +517,7 @@ export default function Home() {
       </section>
 
       {/* Future Plans Section */}
-      <section className="py-16 lg:py-24 px-6 relative overflow-hidden bg-black">
+      <section className="py-16 lg:py-24 px-6 relative overflow-hidden bg-black/40 backdrop-blur-sm">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-zinc-800/30 via-black to-black z-0 pointer-events-none" />
         <div className="max-w-7xl mx-auto relative z-10">
           <ScrollReveal animation="fade-up" className="text-center mb-16 lg:mb-24">
@@ -423,24 +526,26 @@ export default function Home() {
           </ScrollReveal>
 
           <div className="space-y-0">
+            {/* 2028 - Spark Coin */}
             <ScrollReveal animation="slide-left" delay={0.1}>
               <div className="transform hover:scale-[1.02] transition-transform duration-500 rgb-border p-[2px]">
                 <FuturePlanCard
-                  step="Step 1"
-                  title="Community Building"
-                  description="Building a robust foundation through global networking and community engagement events."
-                  image="/images/community-building.png"
+                  step="2028"
+                  title="Spark Coin"
+                  description="Launching of Spark Coin, a proprietary digital asset designed to support ecosystem Transactions, Rewards, and Platform Utility."
+                  image="/images/community-building.png" // Keeping existing image for now as per minimal asset changes rule
                   imageFit="cover"
                 />
               </div>
             </ScrollReveal>
 
+            {/* 2030 - Online Market Hub */}
             <ScrollReveal animation="slide-right" delay={0.2}>
               <div className="transform hover:scale-[1.02] transition-transform duration-500 rgb-border p-[2px]">
                 <FuturePlanCard
-                  step="Step 2"
-                  title="Market Hub"
-                  description="Launching the Spark Online Market Hub - the best place to sell and promote quality products."
+                  step="2030"
+                  title="Online Market Hub"
+                  description="Introduction of a Global Online Market Hub enabling Digital Commerce, Services, and Entrepreneurial participation through Spaark-powered platform."
                   image="/images/market-hub.png"
                   isReversed={true}
                   imageFit="contain"
@@ -448,26 +553,41 @@ export default function Home() {
               </div>
             </ScrollReveal>
 
+            {/* 2031 - Online Games */}
             <ScrollReveal animation="slide-left" delay={0.3}>
               <div className="transform hover:scale-[1.02] transition-transform duration-500 rgb-border p-[2px]">
                 <FuturePlanCard
-                  step="Step 3"
-                  title="Gaming Hub"
-                  description="Release of Spark Online Gaming Hub - a next-gen competitive ecosystem."
+                  step="2031"
+                  title="Online Games"
+                  description="Expansion into Online Gaming Platforms, integrating Digital Economies and user engagement within the broader Spaark Ecosystem."
                   image="/images/gaming-hub.jpg"
                   imageFit="cover"
                 />
               </div>
             </ScrollReveal>
 
+            {/* 2032 - Spark Exchange */}
             <ScrollReveal animation="slide-right" delay={0.4}>
               <div className="transform hover:scale-[1.02] transition-transform duration-500 rgb-border p-[2px]">
                 <FuturePlanCard
-                  step="Step 4"
+                  step="2032"
                   title="Spark Exchange"
-                  description="Full centralized and decentralized exchange capabilities for seamless trading."
+                  description="Launch of Spark Exchange, a Secure and Scalable Digital Exchange Platform, designed to support Digital Asset Trading and Ecosystem Liquidity."
                   image="/images/spark-exchange.jpg"
                   isReversed={true}
+                  imageFit="cover"
+                />
+              </div>
+            </ScrollReveal>
+
+            {/* 2035 - Spark Blockchain */}
+            <ScrollReveal animation="slide-left" delay={0.5}>
+              <div className="transform hover:scale-[1.02] transition-transform duration-500 rgb-border p-[2px]">
+                <FuturePlanCard
+                  step="2035"
+                  title="Spark Blockchain"
+                  description="Deployment of Spark Blockchain, a proprietary blockchain infrastructure focused on security, scalability, and enterprise-grade performance."
+                  image="/images/ai-gaming-hub.png" // Reusing available asset
                   imageFit="cover"
                 />
               </div>
@@ -478,7 +598,7 @@ export default function Home() {
 
       {/* AI/Blockchain Bottom Visual */}
       {/* AI/Blockchain Bottom Visual - REPLACED with AI Gaming Hub */}
-      <section className="relative py-12 lg:py-24 bg-black overflow-hidden flex justify-center">
+      <section className="relative py-12 lg:py-24 bg-black/40 backdrop-blur-sm overflow-hidden flex justify-center">
         <ScrollReveal animation="zoom-in" delay={0.2} className="relative w-full max-w-6xl h-[300px] md:h-[500px] lg:h-[600px] rounded-3xl overflow-hidden border border-white/10 shadow-[0_0_100px_rgba(138,43,226,0.2)] rgb-border p-1">
           <Image
             src="/images/ai-gaming-hub.png"
@@ -492,7 +612,7 @@ export default function Home() {
       </section>
 
       {/* User Benefits Section */}
-      <section className="py-12 lg:py-20 px-6 bg-linear-to-b from-black to-zinc-900 border-t border-white/5">
+      <section className="py-12 lg:py-20 px-6 bg-linear-to-b from-black/50 to-zinc-900/50 backdrop-blur-sm border-t border-white/5">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal animation="fade-up" className="text-center mb-16">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-gold/10 text-brand-gold text-xs font-bold uppercase tracking-widest mb-4">
@@ -502,7 +622,7 @@ export default function Home() {
             <p className="text-zinc-500">Everything you need to succeed in the digital economy.</p>
           </ScrollReveal>
 
-          <div className="grid md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { title: "Exclusive Access", desc: "Early entry to all Spark ecosystem launches and presales." },
               { title: "Passive Income", desc: "Earn daily rewards through our verified staking pools." },
