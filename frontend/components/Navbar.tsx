@@ -35,8 +35,8 @@ const Navbar = () => {
                 >
                     {/* Logo */}
                     <Link href="/" className="flex items-center gap-2 group">
-                        <div className="w-10 h-10 bg-brand-gold/10 rounded-full flex items-center justify-center border border-brand-gold/20 group-hover:border-brand-gold/50 transition-colors">
-                            <span className="text-xl">⚡</span>
+                        <div className="w-10 h-10 rounded-full border border-brand-gold/20 group-hover:border-brand-gold/50 transition-all overflow-hidden relative">
+                            <img src="/images/coin_new.jpg" alt="Spark Coin" className="object-cover w-full h-full" />
                         </div>
                         <span className="text-xl font-black tracking-tighter uppercase hidden md:block">
                             Spaark <span className="text-brand-purple">Exchange</span>
