@@ -49,7 +49,7 @@ const FuturePlanCard = ({ step, title, description, image, delay = 0, isReversed
                     src={image}
                     alt={title}
                     fill
-                    className={`object-${imageFit} grayscale group-hover:grayscale-0 transition-all duration-500`}
+                    className={`object-${imageFit} transition-all duration-500`}
                 />
                 {/* Screen Glare / Tech Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-tr from-brand-purple/20 to-transparent pointer-events-none mix-blend-overlay" />

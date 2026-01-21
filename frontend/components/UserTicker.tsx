@@ -9,7 +9,7 @@ const mockUsers = [
     { name: "Sarah Chain", id: "ID: #9932" },
     { name: "Mike Hodl", id: "ID: #1120" },
     { name: "Jessica SPK", id: "ID: #4451" },
-    { name: "David Spark", id: "ID: #7721" },
+    { name: "David Spaark", id: "ID: #7721" },
 ];
 
 const UserTicker = () => {

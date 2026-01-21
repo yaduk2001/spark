@@ -91,21 +91,20 @@ const AgreementModal = ({ isOpen, onClose, planTitle }: AgreementModalProps) => 
                                 <section>
                                     <h4 className="text-white font-black uppercase tracking-wider mb-2">3. Risk Disclosure</h4>
                                     <p className="text-sm leading-relaxed">
-                                        I am aware that digital assets and blockchain technologies are subject to market volatility. Spark Global does not provide financial advice, and my participation is based on my own due diligence.
+                                        I am aware that digital assets and blockchain technologies are subject to market volatility. Spaark Global does not provide financial advice, and my participation is based on my own due diligence.
                                     </p>
-                                </section>
-
-                                <section>
-                                    <h4 className="text-white font-black uppercase tracking-wider mb-2">4. Subscription Terms</h4>
-                                    <p className="text-sm leading-relaxed">
-                                        I understand that the Spark Starter ($3.5) and Global Pro ($50) memberships are lifetime access entry points. I agree to the specific allocation and withdrawal conditions mentioned in the reward modules.
+                                    <p className="text-zinc-400 leading-relaxed text-sm">
+                                        I understand that the Spaark Starter ($3.5) and Global Pro ($50) memberships are lifetime access entry points. I agree to the specific allocation and withdrawal conditions mentioned in the reward modules.
+                                    </p>
+                                    <p className="text-zinc-400 leading-relaxed text-sm">
+                                        I agree to maintain ethical standards when building my community levels. Any attempt to exploit or manipulate the reward system may result in account restriction within the Spaark Network.
                                     </p>
                                 </section>
 
                                 <section>
                                     <h4 className="text-white font-black uppercase tracking-wider mb-2">5. Community Conduct</h4>
                                     <p className="text-sm leading-relaxed">
-                                        I agree to maintain ethical standards when building my community levels. Any attempt to exploit or manipulate the reward system may result in account restriction within the Spark Network.
+                                        I agree to maintain ethical standards when building my community levels. Any attempt to exploit or manipulate the reward system may result in account restriction within the Spaark Network.
                                     </p>
                                 </section>
                             </div>

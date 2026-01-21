@@ -85,7 +85,7 @@ export default function DashboardPage() {
                             <Zap size={28} />
                         </div>
                         <div>
-                            <p className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest">Spark Balance</p>
+                            <p className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest">Spaark Balance</p>
                             <p className="text-lg font-bold text-amber-500">{stats?.sparkBalance || 0} SPARK</p>
                         </div>
                     </div>

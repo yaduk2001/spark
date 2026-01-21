@@ -73,7 +73,7 @@ export default function CelebrationOverlay() {
 
         // School Pride Effect
         const end = Date.now() + 3 * 1000;
-        const colors = ['#8a2be2', '#ffb800', '#ffffff'];
+        const colors = ['#000000', '#ffb800', '#ffffff'];
 
         (function frame() {
             confetti({
@@ -102,7 +102,7 @@ export default function CelebrationOverlay() {
         setTimeout(() => {
             const duration = 5 * 1000;
             const animationEnd = Date.now() + duration;
-            const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 9999, colors: ['#8a2be2', '#000000', '#F97316', '#ffffff'] };
+            const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 9999, colors: ['#FFD700', '#000000', '#F97316', '#ffffff'] };
             const randomInRange = (min: number, max: number) => Math.random() * (max - min) + min;
 
             // Start burst audio loop
@@ -140,9 +140,9 @@ export default function CelebrationOverlay() {
             bombasticEffect();
         } else {
             playAudio('/audio/pop.mp3', 0.6);
-            fireConfetti(0.25, { spread: 26, startVelocity: 55, colors: ['#8a2be2', '#ffb800'] });
+            fireConfetti(0.25, { spread: 26, startVelocity: 55, colors: ['#FFD700', '#ffb800'] });
             fireConfetti(0.2, { spread: 60, colors: ['#ffffff', '#F97316'] });
-            fireConfetti(0.35, { spread: 100, decay: 0.91, scalar: 0.8, colors: ['#8a2be2', '#ffb800'] });
+            fireConfetti(0.35, { spread: 100, decay: 0.91, scalar: 0.8, colors: ['#B8860B', '#ffb800'] });
         }
     };
 
@@ -184,11 +184,11 @@ export default function CelebrationOverlay() {
 
             // Fire visual confetti
             celebTimerRef.current = setTimeout(() => {
-                fireConfetti(0.25, { spread: 26, startVelocity: 55, colors: ['#8a2be2', '#ffb800'] });
+                fireConfetti(0.25, { spread: 26, startVelocity: 55, colors: ['#FFD700', '#ffb800'] });
                 fireConfetti(0.2, { spread: 60, colors: ['#ffffff', '#F97316'] });
-                fireConfetti(0.35, { spread: 100, decay: 0.91, scalar: 0.8, colors: ['#8a2be2', '#ffb800'] });
+                fireConfetti(0.35, { spread: 100, decay: 0.91, scalar: 0.8, colors: ['#B8860B', '#ffb800'] });
                 fireConfetti(0.1, { spread: 120, startVelocity: 25, decay: 0.92, scalar: 1.2, colors: ['#ffffff'] });
-                fireConfetti(0.1, { spread: 120, startVelocity: 45, colors: ['#8a2be2', '#ffb800', '#F97316'] });
+                fireConfetti(0.1, { spread: 120, startVelocity: 45, colors: ['#FFD700', '#ffb800', '#F97316'] });
             }, 500);
 
             // Hide text logic
@@ -241,7 +241,7 @@ export default function CelebrationOverlay() {
                                             rotate: 0,
                                             opacity: 1,
                                             scale: 1,
-                                            textShadow: "0 0 30px rgba(138, 43, 226, 0.9), 0 0 60px rgba(255, 184, 0, 0.9)"
+                                            textShadow: "0 0 30px rgba(255, 215, 0, 0.9), 0 0 60px rgba(255, 184, 0, 0.9)"
                                         }}
                                         exit={{ ...getRandomPos(), opacity: 0, scale: 0, transition: { duration: 0.8 } }}
                                         transition={{

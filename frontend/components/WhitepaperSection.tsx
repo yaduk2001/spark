@@ -31,7 +31,7 @@ export default function WhitepaperSection() {
                                 <span className="text-zinc-600">Code.</span>
                             </h2>
                             <p className="text-xl text-zinc-400 font-bold max-w-lg leading-relaxed border-l-2 border-brand-purple/50 pl-6">
-                                Complete technical documentation of the Spark Global ecosystem. Transparent, verified, and immutable.
+                                Complete technical documentation of the Spaark Global ecosystem. Transparent, verified, and immutable.
                             </p>
                         </motion.div>
 

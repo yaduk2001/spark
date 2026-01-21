@@ -106,7 +106,7 @@ export default function AboutPage() {
                             "We are dedicated to democratizing access to the digital economy. Every line of code we write and every partnership we forge is designed to put power back into the hands of the community."
                         </p>
                         <div className="mt-12">
-                            <span className="text-brand-purple font-black tracking-widest uppercase">The Spark Team</span>
+                            <span className="text-brand-purple font-black tracking-widest uppercase">The Spaark Team</span>
                         </div>
                     </div>
                 </div>

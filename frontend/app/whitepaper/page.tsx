@@ -81,7 +81,7 @@ export default function WhitepaperPage() {
                             WE BREAK <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-purple to-brand-gold">THE SILENCE</span>
                         </h2>
                         <p className="text-xl text-zinc-300 font-mono leading-relaxed mb-8">
-                            Spark Global is not a corporation.<br />
+                            Spaark Global is not a corporation.<br />
                             It is a protocol designed to dismantle centralized control.<br />
                             Wealth belongs to the creators.
                         </p>
