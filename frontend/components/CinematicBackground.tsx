@@ -28,7 +28,7 @@ export default function CinematicBackground() {
 
         const particles: any[] = [];
         // Reduce count on mobile for performance
-        const particleCount = isMobile ? 30 : 80;
+        const particleCount = isMobile ? 20 : 50;
 
         class Particle {
             x: number;
@@ -125,7 +125,7 @@ export default function CinematicBackground() {
     }, [isMobile]); // Re-run when isMobile changes
 
     // Responsive Object Count
-    const objectCount = isMobile ? 15 : 40;
+    const objectCount = isMobile ? 8 : 20;
 
     return (
         <div className="fixed inset-0 w-full h-full pointer-events-none z-[-1] overflow-hidden">
@@ -192,7 +192,7 @@ export default function CinematicBackground() {
                     animate={{
                         rotate: 360,
                         scale: [1, 1.2, 1],
-                        opacity: [0.3, 0.5, 0.3]
+                        opacity: [0.2, 0.3, 0.2]
                     }}
                     transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
                 />
@@ -201,39 +201,13 @@ export default function CinematicBackground() {
                     animate={{
                         rotate: -360,
                         scale: [1.2, 1, 1.2],
-                        opacity: [0.2, 0.4, 0.2]
+                        opacity: [0.1, 0.3, 0.1]
                     }}
                     transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
                 />
             </motion.div>
 
-            {/* 3D AI Character - Side Aligned */}
-            <motion.div
-                className={`absolute right-[-5%] top-[15%] h-[80vh] w-[40vw] z-[2] opacity-70 ${isMobile ? 'opacity-40 w-[80vw] right-[-20%]' : ''}`}
-                animate={{
-                    y: [0, -20, 0],
-                    scale: [1, 1.02, 1],
-                    filter: ["brightness(1) hue-rotate(0deg)", "brightness(1.15) hue-rotate(3deg)", "brightness(1) hue-rotate(0deg)"],
-                }}
-                transition={{
-                    duration: 8,
-                    ease: "easeInOut",
-                    repeat: Infinity,
-                }}
-            >
-                <div className="relative w-full h-full">
-                    <Image
-                        src="/images/ai_character_bg.png"
-                        alt="AI Character"
-                        fill
-                        className="object-contain object-right-top"
-                        priority
-                        quality={90}
-                    />
-                    {/* Rim Light */}
-                    <div className="absolute inset-0 bg-gradient-to-l from-transparent via-brand-purple/10 to-transparent mix-blend-screen" />
-                </div>
-            </motion.div>
+
 
             {/* Floating Abstract Elements - REAL COIN IMAGES */}
             {Array.from({ length: objectCount }).map((_, i) => {
