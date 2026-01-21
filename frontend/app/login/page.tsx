@@ -34,9 +34,9 @@ export default function LoginPage() {
     };
 
     return (
-        <div className="relative min-h-screen flex flex-col lg:flex-row bg-[#080808]">
+        <div className="relative h-screen overflow-hidden flex flex-col lg:flex-row bg-[#080808] pt-20 lg:pt-24">
             {/* Left Decorative Section - Hidden on Mobile */}
-            <div className="hidden lg:flex lg:w-1/2 relative overflow-hidden items-center justify-center p-20">
+            <div className="hidden lg:flex lg:w-1/2 relative overflow-hidden items-center justify-center p-12">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(138,43,226,0.1),transparent_70%)]" />
                 <div className="relative z-10 max-w-lg lg:translate-y-10">
                     <motion.div
@@ -44,10 +44,10 @@ export default function LoginPage() {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8 }}
                     >
-                        <div className="mb-6 leading-tight">
-                            <GlitchText text="ENTER THE" as="h2" className="text-6xl font-black italic tracking-tighter" />
+                        <div className="mb-4 leading-tight">
+                            <GlitchText text="ENTER THE" as="h2" className="text-5xl font-black italic tracking-tighter" />
                             <br />
-                            <GlitchText text="VAULT" as="h2" className="text-6xl font-black italic tracking-tighter gradient-text" />
+                            <GlitchText text="VAULT" as="h2" className="text-5xl font-black italic tracking-tighter gradient-text" />
                         </div>
                         <p className="text-zinc-500 text-lg font-medium leading-relaxed mb-12">
                             Secure your legacy. Access the exclusive Founders Circle dashboard and manage your digital assets.
@@ -97,9 +97,9 @@ export default function LoginPage() {
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="w-full max-w-md relative z-10 lg:translate-y-10"
+                    className="w-full max-w-md relative z-10 lg:translate-y-0"
                 >
-                    <div className="glass-card p-8 space-y-6 bg-black/40 backdrop-blur-3xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden rgb-border">
+                    <div className="glass-card p-6 space-y-4 bg-black/40 backdrop-blur-3xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden rgb-border">
                         <div className="space-y-1">
                             <motion.div
                                 initial={{ scale: 0 }}
@@ -137,7 +137,7 @@ export default function LoginPage() {
                                         placeholder="Email, Username or Phone"
                                         value={identifier}
                                         onChange={(e) => setIdentifier(e.target.value)}
-                                        className="w-full bg-black/60 border border-white/5 rounded-xl py-3.5 pl-11 pr-4 outline-none focus:border-brand-purple/50 focus:bg-black/80 transition-all text-sm font-medium text-white placeholder:text-zinc-700"
+                                        className="w-full bg-black/60 border border-white/5 rounded-xl py-2.5 pl-11 pr-4 outline-none focus:border-brand-purple/50 focus:bg-black/80 transition-all text-sm font-medium text-white placeholder:text-zinc-700"
                                     />
                                 </div>
                             </div>
@@ -155,7 +155,7 @@ export default function LoginPage() {
                                         placeholder="••••••••"
                                         value={password}
                                         onChange={(e) => setPassword(e.target.value)}
-                                        className="w-full bg-black/60 border border-white/5 rounded-xl py-3.5 pl-11 pr-4 outline-none focus:border-brand-purple/50 focus:bg-black/80 transition-all text-sm font-medium text-white placeholder:text-zinc-700"
+                                        className="w-full bg-black/60 border border-white/5 rounded-xl py-2.5 pl-11 pr-4 outline-none focus:border-brand-purple/50 focus:bg-black/80 transition-all text-sm font-medium text-white placeholder:text-zinc-700"
                                     />
                                 </div>
                             </div>
@@ -200,7 +200,7 @@ export default function LoginPage() {
                         </div>
                     </div>
 
-                    <p className="mt-8 text-center text-[10px] text-zinc-600 uppercase tracking-[0.2em] font-medium leading-relaxed">
+                    <p className="mt-4 text-center text-[10px] text-zinc-600 uppercase tracking-[0.2em] font-medium leading-relaxed">
                         By entering, you agree to the <br /> Founders Circle protocols & terms.
                     </p>
                 </motion.div>

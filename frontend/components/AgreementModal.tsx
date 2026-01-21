@@ -2,8 +2,9 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ShieldCheck, CheckSquare, Square, ArrowRight } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { createPortal } from "react-dom";
 
 interface AgreementModalProps {
     isOpen: boolean;
@@ -13,7 +14,13 @@ interface AgreementModalProps {
 
 const AgreementModal = ({ isOpen, onClose, planTitle }: AgreementModalProps) => {
     const [agreed, setAgreed] = useState(false);
+    const [mounted, setMounted] = useState(false);
     const router = useRouter();
+
+    useEffect(() => {
+        setMounted(true);
+        return () => setMounted(false);
+    }, []);
 
     const handleContinue = () => {
         if (agreed) {
@@ -21,17 +28,19 @@ const AgreementModal = ({ isOpen, onClose, planTitle }: AgreementModalProps) => 
         }
     };
 
-    return (
+    if (!mounted) return null;
+
+    return createPortal(
         <AnimatePresence>
             {isOpen && (
-                <div className="fixed inset-0 z-[100] flex items-center justify-center px-6">
+                <div className="fixed inset-0 z-[9999] flex items-center justify-center px-6">
                     {/* Backdrop */}
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         onClick={onClose}
-                        className="absolute inset-0 bg-black/80 backdrop-blur-md"
+                        className="absolute inset-0 bg-black/90 backdrop-blur-md"
                     />
 
                     {/* Modal Content */}
@@ -130,7 +139,8 @@ const AgreementModal = ({ isOpen, onClose, planTitle }: AgreementModalProps) => 
                     </motion.div>
                 </div>
             )}
-        </AnimatePresence>
+        </AnimatePresence>,
+        document.body
     );
 };
 

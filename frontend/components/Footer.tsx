@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Facebook, Twitter, Instagram, Youtube, Home, Target, Eye } from "lucide-react";
 
 export default function Footer() {
@@ -51,8 +52,13 @@ export default function Footer() {
 
                 {/* Brand */}
                 <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-10 bg-brand-gold/10 rounded-full flex items-center justify-center border border-brand-gold/20">
-                        <span className="text-xl">⚡</span>
+                    <div className="w-10 h-10 rounded-full border border-brand-gold/20 flex items-center justify-center overflow-hidden relative">
+                        <Image
+                            src="/images/coin_new.jpg"
+                            alt="Spark Coin"
+                            fill
+                            className="object-cover"
+                        />
                     </div>
                     <span className="text-xl font-black tracking-tighter uppercase">Spaark Exchange</span>
                 </div>

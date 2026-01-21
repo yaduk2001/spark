@@ -266,7 +266,7 @@ export default function CinematicBackground() {
                             </div>
                         ) : (
                             // Gems/Crystals
-                            <div className="w-full h-full rotate-45 bg-gradient-to-br from-brand-purple/40 via-purple-600/40 to-brand-indigo/40 border border-purple-400/50 shadow-[0_0_40px_rgba(138,43,226,0.4)] backdrop-blur-sm relative">
+                            <div className="w-full h-full rotate-45 bg-gradient-to-br from-brand-purple/40 via-purple-600/40 to-brand-purple/40 border border-purple-400/50 shadow-[0_0_40px_rgba(138,43,226,0.4)] backdrop-blur-sm relative">
                                 <div className="absolute inset-[20%] border border-white/30" />
                             </div>
                         )}

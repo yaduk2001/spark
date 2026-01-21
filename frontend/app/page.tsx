@@ -27,7 +27,7 @@ export default function Home() {
 
       {/* Abstract Background Gradients */}
       <div className="fixed top-[-10%] left-[-10%] w-[40%] h-[40%] bg-brand-purple/20 blur-[150px] rounded-full pointer-events-none z-[-1]" />
-      <div className="fixed bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-brand-indigo/20 blur-[150px] rounded-full pointer-events-none z-[-1]" />
+      <div className="fixed bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-brand-gold/10 blur-[150px] rounded-full pointer-events-none z-[-1]" />
 
       {/* Hero Section */}
       <section className="relative pt-24 lg:pt-48 pb-8 lg:pb-12 px-4 lg:px-6 min-h-[80vh] lg:min-h-[90vh] flex items-center overflow-visible">
@@ -107,11 +107,11 @@ export default function Home() {
 
                 {/* Content Overlay */}
                 <div className="relative z-10 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                  <div className="w-12 h-12 lg:w-16 lg:h-16 rounded-2xl bg-brand-blue/20 backdrop-blur-md flex items-center justify-center text-brand-blue mb-4 lg:mb-6 shadow-[0_0_30px_rgba(59,130,246,0.4)] border border-brand-blue/30">
+                  <div className="w-12 h-12 lg:w-16 lg:h-16 rounded-2xl bg-brand-purple/20 backdrop-blur-md flex items-center justify-center text-brand-purple mb-4 lg:mb-6 shadow-[0_0_30px_rgba(138,43,226,0.4)] border border-brand-purple/30">
                     <Network size={28} className="lg:hidden" />
                     <Network size={32} className="hidden lg:block" />
                   </div>
-                  <h3 className="text-2xl lg:text-3xl font-black mb-3 lg:mb-4 text-white uppercase tracking-tight">Global <span className="text-brand-blue">Connectivity</span></h3>
+                  <h3 className="text-2xl lg:text-3xl font-black mb-3 lg:mb-4 text-white uppercase tracking-tight">Global <span className="text-brand-purple">Connectivity</span></h3>
                   <p className="text-zinc-300 leading-snug font-bold max-w-md text-sm lg:text-base">
                     Connecting markets, gamers, and investors in a unified blockchain ecosystem.
                   </p>
@@ -277,10 +277,10 @@ export default function Home() {
 
             {/* Reward Type 2 */}
             <ScrollReveal animation="fade-left" delay={0.2}>
-              <div className="glass-card-heavy rgb-border p-2 hover:bg-brand-indigo/5 transition-colors">
+              <div className="glass-card-heavy rgb-border p-2 hover:bg-brand-gold/5 transition-colors">
                 <RewardCard
                   title="2. Community Building Rewards"
-                  icon={<Users size={32} className="animate-bounce text-brand-blue" />}
+                  icon={<Users size={32} className="animate-bounce text-brand-purple" />}
                   items={[
                     {
                       label: "Referral Reward",
@@ -349,10 +349,10 @@ export default function Home() {
 
             {/* Reward Type 6: 2nd Level Growth Partners (New) */}
             <ScrollReveal animation="fade-up" delay={0.5}>
-              <div className="glass-card-heavy rgb-border p-2 hover:bg-brand-blue/5 transition-colors">
+              <div className="glass-card-heavy rgb-border p-2 hover:bg-brand-purple/5 transition-colors">
                 <RewardCard
                   title="6. 2nd Level Growth Partners"
-                  icon={<Users size={32} className="text-brand-blue" />}
+                  icon={<Users size={32} className="text-brand-purple" />}
                   items={[
                     {
                       label: "Override Bonus",
@@ -373,10 +373,10 @@ export default function Home() {
 
             {/* Reward Type 7: 3rd Level Growth Partners (New) */}
             <ScrollReveal animation="fade-up" delay={0.6}>
-              <div className="glass-card-heavy rgb-border p-2 hover:bg-brand-indigo/5 transition-colors">
+              <div className="glass-card-heavy rgb-border p-2 hover:bg-brand-gold/5 transition-colors">
                 <RewardCard
                   title="7. 3rd Level Growth Partners"
-                  icon={<Globe size={32} className="text-brand-indigo" />}
+                  icon={<Globe size={32} className="text-brand-gold" />}
                   items={[
                     {
                       label: "Global Pool Entry",
@@ -441,7 +441,7 @@ export default function Home() {
           </div>
 
           {/* Staking Calculations Example */}
-          <div className="glass-card-heavy p-6 lg:p-12 border-brand-purple/20 mb-16 lg:mb-24 bg-gradient-to-r from-brand-purple/10 via-black to-brand-indigo/10 relative overflow-hidden rgb-border">
+          <div className="glass-card-heavy p-6 lg:p-12 border-brand-purple/20 mb-16 lg:mb-24 bg-gradient-to-r from-brand-purple/10 via-black to-brand-purple/10 relative overflow-hidden rgb-border">
             <div className="absolute top-0 right-0 w-64 h-64 bg-brand-purple/20 blur-[100px] rounded-full animate-pulse" />
 
             <div className="flex items-center gap-4 mb-8 lg:mb-10 relative z-10">
@@ -507,7 +507,7 @@ export default function Home() {
                   >
                     <div className="text-xl lg:text-2xl font-black text-white mb-6 uppercase tracking-wider leading-tight min-h-[3.5rem] flex items-center">{item.subtext}</div>
                     <div className="text-3xl lg:text-4xl font-black text-brand-gold mb-6 text-glow-gold">{item.reward}</div>
-                    <div className="mt-auto text-[10px] lg:text-xs text-black font-bold bg-brand-purple px-4 py-2 rounded-full uppercase tracking-wider shadow-[0_0_15px_rgba(138,43,226,0.5)]">{item.label}</div>
+                    <div className="mt-auto text-[10px] lg:text-xs text-white/80 font-bold bg-white/5 border border-white/10 px-4 py-2 rounded-full uppercase tracking-wider">{item.label}</div>
                   </motion.div>
                 ))}
               </div>
@@ -631,7 +631,7 @@ export default function Home() {
             ].map((item, i) => (
               <ScrollReveal key={i} animation="fade-up" delay={i * 0.1}>
                 <div className="bg-white/5 border-double border-4 border-transparent p-6 rounded-2xl hover:bg-white/10 bg-origin-border transition-colors text-center group h-full rgb-border">
-                  <div className="w-12 h-12 bg-linear-to-br from-brand-purple to-brand-indigo rounded-xl mx-auto mb-4 flex items-center justify-center transform group-hover:rotate-12 transition-transform shadow-[0_0_30px_rgba(138,43,226,0.2)]">
+                  <div className="w-12 h-12 bg-linear-to-br from-brand-purple to-brand-purple/50 rounded-xl mx-auto mb-4 flex items-center justify-center transform group-hover:rotate-12 transition-transform shadow-[0_0_30px_rgba(138,43,226,0.2)]">
                     <Star size={24} className="text-white" />
                   </div>
                   <h4 className="font-bold text-lg mb-2">{item.title}</h4>

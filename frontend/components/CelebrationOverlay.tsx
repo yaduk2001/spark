@@ -146,8 +146,25 @@ export default function CelebrationOverlay() {
         }
     };
 
+    // Global session tracker (outside component) is simulated here by using a ref that persists or a module variable?
+    // Since this is a client component, a module-level variable works for the session duration (until refresh).
+
     useEffect(() => {
-        // Reset state on path change
+        // Check if we've already shown the launching sequence in this session
+        if (typeof window !== 'undefined' && (window as any).hasShownLaunchAnimation) {
+            setShowText(false);
+            setHasInteracted(true); // Ensure no overlay on Home
+            return;
+        }
+
+        // Mark as shown for future navigations
+        if (typeof window !== 'undefined') {
+            (window as any).hasShownLaunchAnimation = true;
+        }
+
+        // Reset state on path change (only if it's the FIRST time, but we just handled that above)
+        // Wait! If it's the first time, we run the logic below.
+
         setShowText(false);
         setHasInteracted(false);
         if (timerRef.current) clearTimeout(timerRef.current);

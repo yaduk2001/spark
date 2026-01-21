@@ -136,9 +136,9 @@ function RegisterContent() {
     };
 
     return (
-        <div className="relative min-h-screen flex flex-col lg:flex-row bg-[#080808]">
+        <div className="relative h-screen overflow-hidden flex flex-col lg:flex-row bg-[#080808] pt-20 lg:pt-24">
             {/* Left Decorative Section - Hidden on Mobile */}
-            <div className="hidden lg:flex lg:w-1/2 relative overflow-hidden items-center justify-center p-20">
+            <div className="hidden lg:flex lg:w-1/2 relative overflow-hidden items-center justify-center p-12">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(138,43,226,0.1),transparent_70%)]" />
                 <div className="relative z-10 max-w-lg lg:translate-y-10">
                     <motion.div
@@ -146,10 +146,10 @@ function RegisterContent() {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8 }}
                     >
-                        <div className="mb-6 leading-tight">
-                            <GlitchText text="JOIN THE" as="h2" className="text-6xl font-black italic tracking-tighter" />
+                        <div className="mb-4 leading-tight">
+                            <GlitchText text="JOIN THE" as="h2" className="text-5xl font-black italic tracking-tighter" />
                             <br />
-                            <GlitchText text="ELITE" as="h2" className="text-6xl font-black italic tracking-tighter gradient-text" />
+                            <GlitchText text="ELITE" as="h2" className="text-5xl font-black italic tracking-tighter gradient-text" />
                         </div>
                         <p className="text-zinc-500 text-lg font-medium leading-relaxed mb-12">
                             The Founders Circle is more than just a membership. It's your bridge to the next era of digital ownership and governance.
@@ -190,7 +190,7 @@ function RegisterContent() {
             </div>
 
             {/* Right Form Section */}
-            <div className="flex-1 flex items-center justify-center p-6 lg:p-20 relative overflow-hidden">
+            <div className="flex-1 flex items-center justify-center p-4 lg:p-8 relative overflow-hidden">
                 <div className="absolute inset-0 lg:hidden">
                     <div className="absolute top-1/4 -right-24 w-96 h-96 bg-brand-gold/5 blur-[120px] rounded-full px-brand-purple" />
                     <div className="absolute bottom-1/4 -left-24 w-96 h-96 bg-brand-purple/5 blur-[120px] rounded-full" />
@@ -199,9 +199,9 @@ function RegisterContent() {
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="w-full max-w-2xl relative z-10 lg:translate-y-10"
+                    className="w-full max-w-xl relative z-10 lg:translate-y-0"
                 >
-                    <div className="glass-card p-8 space-y-6 bg-black/40 backdrop-blur-3xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden rgb-border">
+                    <div className="glass-card p-5 space-y-3 bg-black/40 backdrop-blur-3xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden rgb-border">
                         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
                             <div className="space-y-1">
                                 <motion.div
@@ -230,8 +230,8 @@ function RegisterContent() {
                             </motion.div>
                         )}
 
-                        <form onSubmit={handleSubmit} className="space-y-4">
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <form onSubmit={handleSubmit} className="space-y-3">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                                 <div className="space-y-1.5">
                                     <label className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest ml-1">Full Name</label>
                                     <div className="relative group">
@@ -242,7 +242,7 @@ function RegisterContent() {
                                             placeholder="Enter your full name"
                                             value={formData.fullName}
                                             onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                                            className="w-full bg-black/60 border border-white/5 rounded-xl py-3 pl-11 pr-4 outline-none focus:border-brand-purple/50 focus:bg-black/80 transition-all text-sm font-medium text-white placeholder:text-zinc-700"
+                                            className="w-full bg-black/60 border border-white/5 rounded-xl py-2 pl-11 pr-4 outline-none focus:border-brand-purple/50 focus:bg-black/80 transition-all text-sm font-medium text-white placeholder:text-zinc-700"
                                         />
                                     </div>
                                 </div>
@@ -257,7 +257,7 @@ function RegisterContent() {
                                             placeholder="Choose a username"
                                             value={formData.username}
                                             onChange={(e) => setFormData({ ...formData, username: e.target.value })}
-                                            className={`w-full bg-black/60 border rounded-xl py-3 pl-11 pr-10 outline-none focus:bg-black/80 transition-all text-sm font-medium text-white placeholder:text-zinc-700 ${usernameStatus === 'taken' ? 'border-red-500/50 focus:border-red-500' :
+                                            className={`w-full bg-black/60 border rounded-xl py-2 pl-11 pr-10 outline-none focus:bg-black/80 transition-all text-sm font-medium text-white placeholder:text-zinc-700 ${usernameStatus === 'taken' ? 'border-red-500/50 focus:border-red-500' :
                                                 usernameStatus === 'available' ? 'border-green-500/50 focus:border-green-500' :
                                                     'border-white/5 focus:border-brand-purple/50'
                                                 }`}
@@ -282,7 +282,7 @@ function RegisterContent() {
                                             placeholder="Enter your email"
                                             value={formData.email}
                                             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                            className={`w-full bg-black/60 border rounded-xl py-3 pl-11 pr-10 outline-none focus:bg-black/80 transition-all text-sm font-medium text-white placeholder:text-zinc-700 ${emailStatus === 'taken' ? 'border-red-500/50 focus:border-red-500' :
+                                            className={`w-full bg-black/60 border rounded-xl py-2 pl-11 pr-10 outline-none focus:bg-black/80 transition-all text-sm font-medium text-white placeholder:text-zinc-700 ${emailStatus === 'taken' ? 'border-red-500/50 focus:border-red-500' :
                                                 emailStatus === 'available' ? 'border-green-500/50 focus:border-green-500' :
                                                     'border-white/5 focus:border-brand-purple/50'
                                                 }`}
@@ -311,7 +311,7 @@ function RegisterContent() {
                                                 placeholder="Number"
                                                 value={formData.phoneNumber}
                                                 onChange={(e) => setFormData({ ...formData, phoneNumber: e.target.value })}
-                                                className="w-full bg-black/60 border border-white/5 rounded-xl py-3 pl-11 pr-4 outline-none focus:border-brand-purple/50 focus:bg-black/80 transition-all text-sm font-medium text-white placeholder:text-zinc-700"
+                                                className="w-full bg-black/60 border border-white/5 rounded-xl py-2 pl-11 pr-4 outline-none focus:border-brand-purple/50 focus:bg-black/80 transition-all text-sm font-medium text-white placeholder:text-zinc-700"
                                             />
                                         </div>
                                     </div>
@@ -327,7 +327,7 @@ function RegisterContent() {
                                             placeholder="••••••••"
                                             value={formData.password}
                                             onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-                                            className="w-full bg-black/60 border border-white/5 rounded-xl py-3 pl-11 pr-4 outline-none focus:border-brand-purple/50 focus:bg-black/80 transition-all text-sm font-medium text-white placeholder:text-zinc-700"
+                                            className="w-full bg-black/60 border border-white/5 rounded-xl py-2 pl-11 pr-4 outline-none focus:border-brand-purple/50 focus:bg-black/80 transition-all text-sm font-medium text-white placeholder:text-zinc-700"
                                         />
                                     </div>
                                 </div>
@@ -342,7 +342,7 @@ function RegisterContent() {
                                             placeholder="••••••••"
                                             value={formData.confirmPassword}
                                             onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
-                                            className="w-full bg-black/60 border border-white/5 rounded-xl py-3 pl-11 pr-4 outline-none focus:border-brand-purple/50 focus:bg-black/80 transition-all text-sm font-medium text-white placeholder:text-zinc-700"
+                                            className="w-full bg-black/60 border border-white/5 rounded-xl py-2 pl-11 pr-4 outline-none focus:border-brand-purple/50 focus:bg-black/80 transition-all text-sm font-medium text-white placeholder:text-zinc-700"
                                         />
                                     </div>
                                 </div>
@@ -357,7 +357,7 @@ function RegisterContent() {
                                             placeholder="Enter referral code"
                                             value={formData.referralCode}
                                             onChange={(e) => setFormData({ ...formData, referralCode: e.target.value })}
-                                            className="w-full bg-black/60 border border-white/5 rounded-xl py-3 pl-11 pr-4 outline-none focus:border-brand-purple/50 focus:bg-black/80 transition-all text-sm font-medium text-white placeholder:text-zinc-700"
+                                            className="w-full bg-black/60 border border-white/5 rounded-xl py-2 pl-11 pr-4 outline-none focus:border-brand-purple/50 focus:bg-black/80 transition-all text-sm font-medium text-white placeholder:text-zinc-700"
                                         />
                                     </div>
                                 </div>
@@ -366,7 +366,7 @@ function RegisterContent() {
                             <button
                                 type="submit"
                                 disabled={loading || usernameStatus === 'taken' || emailStatus === 'taken'}
-                                className="group relative w-full py-4 bg-white text-black rounded-xl font-black text-xs uppercase tracking-widest hover:bg-brand-gold hover:text-white hover:shadow-[0_0_30px_rgba(255,184,0,0.3)] transition-all flex items-center justify-center gap-2 mt-2 disabled:opacity-50 active:scale-[0.98]"
+                                className="group relative w-full py-2.5 bg-white text-black rounded-xl font-black text-xs uppercase tracking-widest hover:bg-brand-gold hover:text-white hover:shadow-[0_0_30px_rgba(255,184,0,0.3)] transition-all flex items-center justify-center gap-2 mt-2 disabled:opacity-50 active:scale-[0.98]"
                             >
                                 {loading ? (
                                     <div className="flex items-center gap-2">

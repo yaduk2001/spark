@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { Wallet, Menu, X, ArrowRight, User, LogOut } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
@@ -36,7 +37,13 @@ const Navbar = () => {
                     {/* Logo */}
                     <Link href="/" className="flex items-center gap-2 group">
                         <div className="w-10 h-10 rounded-full border border-brand-gold/20 group-hover:border-brand-gold/50 transition-all overflow-hidden relative">
-                            <img src="/images/coin_new.jpg" alt="Spark Coin" className="object-cover w-full h-full" />
+                            <Image
+                                src="/images/coin_new.jpg"
+                                alt="Spark Coin"
+                                fill
+                                className="object-cover"
+                                priority
+                            />
                         </div>
                         <span className="text-xl font-black tracking-tighter uppercase hidden md:block">
                             Spaark <span className="text-brand-purple">Exchange</span>
