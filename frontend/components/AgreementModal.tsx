@@ -33,14 +33,14 @@ const AgreementModal = ({ isOpen, onClose, planTitle }: AgreementModalProps) => 
     return createPortal(
         <AnimatePresence>
             {isOpen && (
-                <div className="fixed inset-0 z-[9999] flex items-center justify-center px-6">
+                <div className="modal-backdrop">
                     {/* Backdrop */}
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         onClick={onClose}
-                        className="absolute inset-0 bg-black/90 backdrop-blur-md"
+                        className="absolute inset-0"
                     />
 
                     {/* Modal Content */}
@@ -48,17 +48,17 @@ const AgreementModal = ({ isOpen, onClose, planTitle }: AgreementModalProps) => 
                         initial={{ opacity: 0, scale: 0.9, y: 20 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.9, y: 20 }}
-                        className="relative w-full max-w-2xl bg-zinc-950 border border-white/10 rounded-[2.5rem] overflow-hidden shadow-[0_0_100px_rgba(138,43,226,0.3)] rgb-border"
+                        className="modal-content"
                     >
                         {/* Header */}
-                        <div className="p-8 border-b border-white/5 flex items-center justify-between bg-zinc-900/50">
+                        <div className="modal-header">
                             <div className="flex items-center gap-3">
-                                <div className="w-10 h-10 rounded-xl bg-brand-purple/20 flex items-center justify-center text-brand-purple shadow-[0_0_15px_rgba(138,43,226,0.3)]">
+                                <div className="w-10 h-10 rounded-xl bg-[#FACC15]/20 flex items-center justify-center text-[#FACC15] shadow-[0_0_15px_rgba(250,204,21,0.3)]">
                                     <ShieldCheck size={24} />
                                 </div>
                                 <div>
                                     <h2 className="text-2xl font-black uppercase tracking-tight">
-                                        Spaark <span className="text-brand-purple">Exchange</span>
+                                        Spaark <span className="text-[#FACC15]">Exchange</span>
                                     </h2>
                                     <p className="text-xs text-zinc-400 font-bold tracking-widest uppercase">Membership Agreement</p>
                                 </div>
@@ -69,7 +69,7 @@ const AgreementModal = ({ isOpen, onClose, planTitle }: AgreementModalProps) => 
                         </div>
 
                         {/* Agreement Text */}
-                        <div className="p-8 max-h-[60vh] overflow-y-auto custom-scrollbar">
+                        <div className="modal-body custom-scrollbar">
                             <div className="space-y-6 text-zinc-400">
                                 <section>
                                     <h4 className="text-white font-black uppercase tracking-wider mb-2">1. Participation Awareness</h4>
@@ -111,13 +111,13 @@ const AgreementModal = ({ isOpen, onClose, planTitle }: AgreementModalProps) => 
                         </div>
 
                         {/* Footer */}
-                        <div className="p-8 bg-zinc-900/50 border-t border-white/5 space-y-4">
+                        <div className="modal-footer">
                             <button
                                 onClick={() => setAgreed(!agreed)}
                                 className="flex items-center gap-3 group cursor-pointer"
                             >
-                                <div className={`w-6 h-6 rounded-md border-2 flex items-center justify-center transition-all ${agreed ? "bg-brand-purple border-brand-purple shadow-[0_0_15px_rgba(138,43,226,0.5)]" : "border-white/20 group-hover:border-white/40"}`}>
-                                    {agreed ? <CheckSquare size={16} className="text-white" /> : <Square size={16} className="text-transparent" />}
+                                <div className={`w-6 h-6 rounded-md border-2 flex items-center justify-center transition-all ${agreed ? "bg-[#FACC15] border-[#FACC15] shadow-[0_0_15px_rgba(250,204,21,0.5)]" : "border-white/20 group-hover:border-white/40"}`}>
+                                    {agreed ? <CheckSquare size={16} className="text-black" /> : <Square size={16} className="text-transparent" />}
                                 </div>
                                 <span className="text-sm font-bold text-zinc-300 group-hover:text-white transition-colors">
                                     I have read and agree to the Membership Terms
@@ -128,7 +128,7 @@ const AgreementModal = ({ isOpen, onClose, planTitle }: AgreementModalProps) => 
                                 onClick={handleContinue}
                                 disabled={!agreed}
                                 className={`w-full py-4 rounded-xl font-black uppercase tracking-widest flex items-center justify-center gap-3 transition-all ${agreed
-                                    ? "bg-white text-black hover:bg-brand-gold hover:text-black shadow-[0_0_30px_rgba(255,184,0,0.3)]"
+                                    ? "bg-white text-black hover:bg-[#FACC15] hover:text-black shadow-[0_0_30px_rgba(250,204,21,0.3)]"
                                     : "bg-zinc-800 text-zinc-500 cursor-not-allowed"
                                     }`}
                             >

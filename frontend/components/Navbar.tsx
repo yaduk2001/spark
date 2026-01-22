@@ -3,140 +3,143 @@
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { Wallet, Menu, X, ArrowRight, User, LogOut } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useAuth } from "@/context/AuthContext";
 import { usePathname } from "next/navigation";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
     const { user, logout } = useAuth();
     const pathname = usePathname();
 
     // Hide Navbar on admin pages
     if (pathname?.startsWith('/admin')) return null;
 
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 20);
+        };
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
     const navLinks = [
         { name: "Home", href: "/" },
         { name: "About", href: "/about" },
-        { name: "Mint SPK", href: "/mint" },
+        { name: "Mint SRK", href: "/mint" },
         { name: "Presale", href: "/presale" },
         { name: "Ecosystem", href: "/ecosystem" },
     ];
 
     return (
-        <nav className="fixed top-0 left-0 right-0 z-50 px-6 py-6">
-            <div className="max-w-7xl mx-auto">
-                <div className="pdf-card px-8 py-4 flex items-center justify-between bg-black/80 backdrop-blur-xl border-brand-gold/30">
-                    {/* Logo */}
-                    <Link href="/" className="flex items-center gap-3 group">
-                        <div className="w-10 h-10 rounded-full border border-brand-gold/50 relative overflow-hidden">
-                            <Image
-                                src="/images/coin_new.jpg"
-                                alt="Spaark Coin"
-                                fill
-                                className="object-cover"
-                                priority
-                            />
-                        </div>
-                        <span className="text-xl font-bold tracking-tight uppercase text-white">
-                            Spaark <span className="text-brand-gold">Exchange</span>
-                        </span>
-                    </Link>
-
-                    {/* Desktop Nav */}
-                    <div className="hidden lg:flex items-center gap-8">
-                        {navLinks.map((link) => (
-                            <Link
-                                key={link.name}
-                                href={link.href}
-                                className="text-sm font-bold text-zinc-400 hover:text-brand-gold transition-colors uppercase tracking-wider"
-                            >
-                                {link.name}
-                            </Link>
-                        ))}
+        <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+            <div className="nav-pill">
+                {/* Logo */}
+                <Link href="/" className="flex items-center gap-3 group shrink-0 pl-2">
+                    <div className="w-8 h-8 md:w-10 md:h-10 rounded-full border border-[#FACC15]/30 relative overflow-hidden group-hover:border-[#FACC15] transition-colors shadow-[0_0_15px_rgba(250,204,21,0.2)]">
+                        <Image
+                            src="/images/coin_new.jpg"
+                            alt="Spaark Coin"
+                            fill
+                            className="object-cover"
+                            priority
+                        />
                     </div>
+                    <span className="text-lg md:text-xl font-bold tracking-tight uppercase text-white hidden sm:block">
+                        Spaark <span className="text-[#FACC15]">Exchange</span>
+                    </span>
+                    <span className="text-lg font-bold uppercase text-white sm:hidden">Spaark</span>
+                </Link>
 
-                    {/* Actions */}
-                    <div className="hidden lg:flex items-center gap-6">
-                        {user ? (
-                            <div className="flex items-center gap-4">
-                                <Link
-                                    href="/dashboard"
-                                    className="flex items-center gap-2 text-sm font-bold text-white hover:text-brand-gold transition-colors"
-                                >
-                                    <User size={18} />
-                                    Account
-                                </Link>
-                                <button
-                                    onClick={logout}
-                                    className="text-red-500 hover:text-red-400 transition-colors"
-                                >
-                                    <LogOut size={18} />
-                                </button>
-                            </div>
-                        ) : (
-                            <div className="flex items-center gap-6">
-                                <Link
-                                    href="/login"
-                                    className="text-sm font-bold text-zinc-400 hover:text-white uppercase tracking-wider"
-                                >
-                                    Log In
-                                </Link>
-                                <Link
-                                    href="/register"
-                                    className="px-6 py-2 rounded-lg bg-brand-gold text-black text-sm font-bold hover:bg-white transition-colors"
-                                >
-                                    JOIN CIRCLE
-                                </Link>
-                            </div>
-                        )}
-                    </div>
-
-                    {/* Mobile Toggle */}
-                    <button
-                        className="lg:hidden p-2 text-zinc-400 hover:text-white transition-colors"
-                        onClick={() => setIsOpen(!isOpen)}
-                    >
-                        {isOpen ? <X size={24} /> : <Menu size={24} />}
-                    </button>
+                {/* Desktop Nav - Centered */}
+                <div className="hidden lg:flex items-center justify-center gap-1">
+                    {navLinks.map((link) => (
+                        <Link
+                            key={link.name}
+                            href={link.href}
+                            className={`nav-link ${pathname === link.href ? 'active' : ''}`}
+                        >
+                            {link.name}
+                        </Link>
+                    ))}
                 </div>
+
+                {/* Actions */}
+                <div className="hidden lg:flex items-center gap-2 shrink-0 pr-2">
+                    {user ? (
+                        <div className="flex items-center gap-3 pl-4 border-l border-white/10">
+                            <Link href="/dashboard" className="p-2 rounded-full hover:bg-white/10 text-white transition-colors" title="Dashboard">
+                                <User size={18} />
+                            </Link>
+                            <button onClick={logout} className="p-2 rounded-full hover:bg-red-500/10 text-zinc-500 hover:text-red-500 transition-colors" title="Sign Out">
+                                <LogOut size={18} />
+                            </button>
+                        </div>
+                    ) : (
+                        <div className="flex items-center gap-3">
+                            <Link href="/login" className="text-link">
+                                Log In
+                            </Link>
+                            <Link href="/register" className="action-btn">
+                                Join
+                            </Link>
+                        </div>
+                    )}
+                </div>
+
+                {/* Mobile Toggle */}
+                <button
+                    className="lg:hidden p-2 text-zinc-400 hover:text-white transition-colors hover:bg-white/5 rounded-full"
+                    onClick={() => setIsOpen(!isOpen)}
+                >
+                    {isOpen ? <X size={24} /> : <Menu size={24} />}
+                </button>
             </div>
 
             {/* Mobile Menu */}
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
-                        className="absolute top-24 left-6 right-6 pdf-card bg-black/95 border-brand-gold/20 p-6 lg:hidden flex flex-col gap-6"
+                        initial={{ opacity: 0, y: -20, scale: 0.95 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: -20, scale: 0.95 }}
+                        className="absolute top-24 left-6 right-6 glass-card p-6 lg:hidden flex flex-col gap-6 z-50 shadow-2xl shadow-black/50"
                     >
-                        {navLinks.map((link) => (
-                            <Link
-                                key={link.name}
-                                href={link.href}
-                                onClick={() => setIsOpen(false)}
-                                className="text-lg font-bold text-zinc-400 hover:text-brand-gold transition-colors"
-                            >
-                                {link.name}
-                            </Link>
-                        ))}
-                        <hr className="border-white/10" />
+                        <div className="flex flex-col gap-2">
+                            {navLinks.map((link) => (
+                                <Link
+                                    key={link.name}
+                                    href={link.href}
+                                    onClick={() => setIsOpen(false)}
+                                    className={`
+                                    p-4 rounded-xl text-lg font-bold transition-all flex items-center justify-between group
+                                    ${pathname === link.href ? 'bg-white/5 text-[#FACC15]' : 'text-zinc-400 hover:text-white hover:bg-white/5'}
+                                `}
+                                >
+                                    {link.name}
+                                    <ArrowRight size={16} className="opacity-0 group-hover:opacity-100 transition-opacity -translate-x-2 group-hover:translate-x-0" />
+                                </Link>
+                            ))}
+                        </div>
+
+                        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
                         {user ? (
-                            <div className="flex flex-col gap-4">
-                                <Link href="/dashboard" className="text-white font-bold flex items-center gap-2">
-                                    <User size={18} /> Dashboard
+                            <div className="flex flex-col gap-3">
+                                <Link href="/dashboard" onClick={() => setIsOpen(false)} className="btn-secondary w-full justify-between group">
+                                    <span className="flex items-center gap-2"><User size={18} /> Dashboard</span>
+                                    <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                                 </Link>
-                                <button onClick={logout} className="text-red-500 font-bold flex items-center gap-2">
+                                <button onClick={() => { logout(); setIsOpen(false); }} className="w-full py-4 text-red-500 font-bold flex items-center justify-center gap-2 hover:bg-red-500/5 rounded-xl transition-colors">
                                     <LogOut size={18} /> Sign Out
                                 </button>
                             </div>
                         ) : (
-                            <div className="flex flex-col gap-4">
-                                <Link href="/login" onClick={() => setIsOpen(false)} className="text-white font-bold">Log In</Link>
-                                <Link href="/register" onClick={() => setIsOpen(false)} className="text-brand-gold font-bold">Register Now</Link>
+                            <div className="grid grid-cols-2 gap-4">
+                                <Link href="/login" onClick={() => setIsOpen(false)} className="btn-secondary text-center text-sm">Log In</Link>
+                                <Link href="/register" onClick={() => setIsOpen(false)} className="btn-primary text-center text-sm">Join Now</Link>
                             </div>
                         )}
                     </motion.div>

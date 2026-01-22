@@ -22,45 +22,45 @@ const RewardCard: React.FC<RewardCardProps> = ({ title, icon, items, delay = 0, 
         <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ delay, type: "spring" }}
-            className={`glass-card-heavy border-2 border-white/5 relative overflow-hidden group ${className}`}
+            whileHover={{ scale: 1.02, y: -5 }}
+            transition={{ delay, duration: 0.6, ease: "easeOut" }}
+            className={`card-glass ${className}`}
         >
-            <div className="relative z-10 p-5 lg:p-6">
-                <div className="flex items-center gap-4 lg:gap-5 mb-6 lg:mb-8 border-b border-white/5 pb-6">
-                    {icon && (
-                        <div className="w-12 h-12 lg:w-16 lg:h-16 rounded-2xl bg-brand-purple/20 flex items-center justify-center text-brand-purple shadow-[0_0_20px_rgba(138,43,226,0.3)] group-hover:scale-110 transition-transform duration-500">
-                            {icon}
-                        </div>
-                    )}
-                    <h3 className="text-xl lg:text-2xl font-black uppercase tracking-tight leading-none text-white">{title}</h3>
-                </div>
-
-                <div className="space-y-4">
-                    {items.map((item, i) => (
-                        <div
-                            key={i}
-                            className={`p-4 lg:p-5 rounded-2xl border-2 transition-all duration-300 ${item.highlight
-                                ? "bg-brand-gold/20 border-brand-gold/50 shadow-[0_0_30px_rgba(191,149,63,0.15)]"
-                                : "bg-black/40 border-white/5 hover:border-brand-gold/30 hover:bg-black/60"
-                                }`}
-                        >
-                            <div className="flex justify-between items-center gap-4">
-                                <span className="text-zinc-400 text-[10px] lg:text-xs font-bold uppercase tracking-wider">{item.label}</span>
-                                <span className={`font-black text-lg lg:text-xl text-right leading-tight ${item.highlight ? "text-white" : "text-metallic"}`}>
-                                    {item.value}
-                                </span>
-                            </div>
-                            {item.subtext && (
-                                <p className="text-[10px] lg:text-xs text-zinc-500 mt-2 font-medium border-t border-white/5 pt-2">{item.subtext}</p>
-                            )}
-                        </div>
-                    ))}
-                </div>
+            {/* Hover Shimmer */}
+            <div className="card-shimmer-layer">
+                <div className="shimmer-gradient" />
             </div>
 
-            {/* Decorative Gradient */}
-            <div className="absolute top-0 right-0 w-80 h-80 bg-brand-gold/20 blur-[100px] opacity-20 group-hover:opacity-40 transition-opacity animate-pulse-slow" />
-            <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-brand-gold to-transparent opacity-50" />
+            <div className="flex items-center gap-6 mb-10 relative z-10 p-6 pb-6">
+                {icon && (
+                    <div className="w-16 h-16 rounded-2xl bg-[#FACC15]/5 flex items-center justify-center text-[#FACC15] shrink-0 border border-[#FACC15]/10 group-hover:bg-[#FACC15] group-hover:text-black transition-colors duration-500">
+                        {icon}
+                    </div>
+                )}
+                <h3 className="text-xl font-bold uppercase tracking-tight text-white group-hover:text-[#FACC15] transition-colors">{title}</h3>
+            </div>
+
+            <div className="space-y-6 flex-1 relative z-10 px-6 pb-6">
+                {items.map((item, i) => (
+                    <div
+                        key={i}
+                        className={`p-6 rounded-xl border transition-all duration-300 ${item.highlight
+                            ? "bg-[#FACC15]/10 border-[#FACC15]/30 group-hover:bg-[#FACC15]/20"
+                            : "bg-white/5 border-white/5 group-hover:bg-white/10"
+                            }`}
+                    >
+                        <div className="flex justify-between items-center gap-4 mb-3">
+                            <span className="text-zinc-500 text-xs font-bold uppercase tracking-widest group-hover:text-zinc-300 transition-colors">{item.label}</span>
+                            <span className={`font-black text-xl text-right leading-none transition-all duration-300 ${item.highlight ? "text-[#FACC15]" : "text-white group-hover:text-[#FACC15]"}`}>
+                                {item.value}
+                            </span>
+                        </div>
+                        {item.subtext && (
+                            <p className="text-xs text-zinc-500 font-medium leading-relaxed group-hover:text-zinc-400 transition-colors mt-2">{item.subtext}</p>
+                        )}
+                    </div>
+                ))}
+            </div>
         </motion.div>
     );
 };

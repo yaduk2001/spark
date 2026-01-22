@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { AuthProvider } from "@/context/AuthContext";
-import CelebrationOverlay from "@/components/CelebrationOverlay";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,9 +18,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
-      <body className={`${inter.className} bg-bg-dark text-white`}>
+      <body className={inter.className}>
         <AuthProvider>
-          <CelebrationOverlay />
           <Navbar />
           {children}
         </AuthProvider>

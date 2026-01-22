@@ -25,23 +25,19 @@ const MembershipCounter = () => {
         <div className="flex flex-col items-center sm:items-start gap-4">
             <Link href="#subscription">
                 <motion.button
-                    whileHover={{ scale: 1.05 }}
+                    whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.95 }}
-                    className="relative group cursor-pointer"
+                    className="btn-gold px-12 py-5 flex items-center gap-4 shadow-[0_0_30px_rgba(212,175,55,0.4)]"
                 >
-                    <div
-                        className="relative px-10 py-5 rounded-full flex items-center gap-3 border border-white/20 bg-gradient-to-r from-brand-purple/20 to-brand-gold/20 backdrop-blur-md hover:from-brand-purple/40 hover:to-brand-gold/40 transition-all shadow-[0_0_30px_rgba(138,43,226,0.2)] group-hover:shadow-[0_0_40px_rgba(255,184,0,0.3)]"
-                    >
-                        <Zap className="text-brand-gold fill-brand-gold" size={20} />
-                        <span className="text-xl font-black uppercase tracking-wider text-white">Activate Membership</span>
-                    </div>
+                    <Zap className="text-black fill-black" size={24} />
+                    <span className="text-xl font-black uppercase tracking-tighter text-black">Activate Membership</span>
                 </motion.button>
             </Link>
 
             <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="flex items-center gap-3 px-4 py-2 rounded-full border border-transparent backdrop-blur-sm rgb-border"
+                className="flex items-center gap-3 px-4 py-2 rounded-full border border-white/5 bg-white/5 backdrop-blur-sm"
                 style={{ borderRadius: "9999px" }}
             >
                 <div className="relative flex h-3 w-3">
