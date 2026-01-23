@@ -27,6 +27,15 @@ function RegisterContent() {
     });
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
+    const [showPolicyModal, setShowPolicyModal] = useState(false);
+    const [referralEmailConsent, setReferralEmailConsent] = useState(false);
+    const [followedName, setFollowedName] = useState("");
+
+    useEffect(() => {
+        if (formData.fullName && !followedName) {
+            setFollowedName(formData.fullName);
+        }
+    }, [formData.fullName]);
 
     useEffect(() => {
         const refCode = searchParams.get('ref');
@@ -113,17 +122,24 @@ function RegisterContent() {
         }
 
         if (!formData.referralCode) {
-            setError("Referral code is required");
+            setError("Please enter referral code");
             return;
         }
 
+        // Trigger Policy Modal instead of direct submission
+        setShowPolicyModal(true);
+    };
+
+    const handleFinalRegistration = async () => {
         setLoading(true);
+        setShowPolicyModal(false);
 
         try {
-            // Combine dial code with phone number
             const submissionData = {
                 ...formData,
-                phoneNumber: `${selectedCountry.dialCode}${formData.phoneNumber}`
+                phoneNumber: `${selectedCountry.dialCode}${formData.phoneNumber}`,
+                referralEmailConsent,
+                followedName
             };
             const data = await registerUser(submissionData);
             login(data.token, data.user);
@@ -353,7 +369,6 @@ function RegisterContent() {
                                         <Sparkles className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-600 group-focus-within:text-brand-purple transition-colors" size={16} />
                                         <input
                                             type="text"
-                                            required
                                             placeholder="Enter referral code"
                                             value={formData.referralCode}
                                             onChange={(e) => setFormData({ ...formData, referralCode: e.target.value })}
@@ -385,7 +400,7 @@ function RegisterContent() {
                         {/* Integrated Footer Link */}
                         <div className="pt-4 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4">
                             <span className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest leading-none">
-                                By entering, you agree to the <br className="hidden md:block" /> Founders Circle protocols & terms.
+                                SECURE GENESIS REGISTRATION <br className="hidden md:block" /> DATA IS END-TO-END ENCRYPTED.
                             </span>
                             <div className="flex items-center gap-2">
                                 <span className="text-[10px] text-zinc-500 font-bold uppercase tracking-widest">Already a member?</span>
@@ -408,6 +423,130 @@ function RegisterContent() {
                     </div>
                 </motion.div>
             </div>
+
+            {/* Policy Overlay Modal */}
+            {showPolicyModal && (
+                <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-xl">
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        className="glass-card max-w-2xl w-full p-8 space-y-6 relative border-brand-gold/30 gold-glow"
+                    >
+                        <div className="flex items-center gap-4 mb-2">
+                            <div className="p-3 rounded-2xl bg-brand-gold/10 text-brand-gold">
+                                <ShieldCheck size={32} />
+                            </div>
+                            <div>
+                                <h2 className="text-2xl font-black uppercase tracking-tighter">Protocols & Terms</h2>
+                                <p className="text-zinc-500 text-sm font-medium">Please review carefully before initializing membership.</p>
+                            </div>
+                        </div>
+
+                        {/* Confirmation Signature Area - MOVED ABOVE & MADE BIGGER */}
+                        <div className="space-y-4">
+                            <div className="space-y-3">
+                                <label className="text-xs font-black text-brand-gold uppercase tracking-[0.2em] ml-1 italic flex items-center gap-2">
+                                    <span className="w-2 h-2 bg-brand-gold rounded-full animate-pulse" />
+                                    I <span className={`underline decoration-2 underline-offset-4 ${followedName && formData.fullName.trim().toUpperCase() !== followedName.trim() ? 'text-red-500 decoration-red-500' : ''}`}>
+                                        {followedName || '______'}
+                                    </span> AND AGREE:
+                                </label>
+                                <div className="relative group">
+                                    <User className="absolute left-5 top-1/2 -translate-y-1/2 text-zinc-500 group-focus-within:text-brand-gold transition-colors" size={24} />
+                                    <input
+                                        type="text"
+                                        placeholder="TYPE FULL NAME TO INITIALIZE"
+                                        value={followedName}
+                                        onChange={(e) => setFollowedName(e.target.value.toUpperCase())}
+                                        className={`w-full bg-white/5 border rounded-2xl py-5 pl-14 pr-6 outline-none focus:bg-black/80 transition-all text-xl font-black tracking-[0.3em] placeholder:text-zinc-800 placeholder:tracking-widest ${followedName && formData.fullName.trim().toUpperCase() !== followedName.trim()
+                                            ? 'border-red-500/50 focus:border-red-500 text-red-500'
+                                            : 'border-white/10 focus:border-brand-gold/50 text-white'
+                                            }`}
+                                    />
+                                    {followedName && formData.fullName.trim().toUpperCase() !== followedName.trim() && (
+                                        <motion.div
+                                            initial={{ opacity: 0, x: 10 }}
+                                            animate={{ opacity: 1, x: 0 }}
+                                            className="absolute right-6 top-1/2 -translate-y-1/2 text-[10px] font-black text-red-500 uppercase tracking-widest animate-pulse"
+                                        >
+                                            Identity Variance
+                                        </motion.div>
+                                    )}
+                                </div>
+                                {followedName && formData.fullName.trim().toUpperCase() !== followedName.trim() && (
+                                    <p className="text-[10px] font-bold text-red-500/80 italic ml-1">
+                                        Signature must exactly match your registration name: <span className="text-white">{formData.fullName.toUpperCase()}</span>
+                                    </p>
+                                )}
+                            </div>
+                        </div>
+
+                        {/* Policy Text - NO INTERNAL SCROLL */}
+                        <div className="space-y-6 text-xs text-zinc-400 font-medium leading-relaxed bg-black/20 p-6 rounded-2xl border border-white/5 border-dashed">
+                            <div className="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <p className="text-brand-gold font-bold uppercase tracking-widest mb-2 flex items-center gap-2 text-[10px]">
+                                        <span className="w-1 h-1 bg-brand-gold rounded-full" /> 1. GOVERNANCE
+                                    </p>
+                                    <p>Decentralized ecosystem assets and rewards are subject to Genesis Whitepaper protocols.</p>
+                                </div>
+                                <div>
+                                    <p className="text-brand-gold font-bold uppercase tracking-widest mb-2 flex items-center gap-2 text-[10px]">
+                                        <span className="w-1 h-1 bg-brand-gold rounded-full" /> 2. PRIVACY
+                                    </p>
+                                    <p>Data is end-to-end encrypted. Aggregated analytics used for performance only.</p>
+                                </div>
+                                <div>
+                                    <p className="text-brand-gold font-bold uppercase tracking-widest mb-2 flex items-center gap-2 text-[10px]">
+                                        <span className="w-1 h-1 bg-brand-gold rounded-full" /> 3. REFERRALS
+                                    </p>
+                                    <p>Real-time distribution. Manipulation results in immediate Genesis ID termination.</p>
+                                </div>
+                                <div>
+                                    <p className="text-brand-gold font-bold uppercase tracking-widest mb-2 flex items-center gap-2 text-[10px]">
+                                        <span className="w-1 h-1 bg-brand-gold rounded-full" /> 4. RISK
+                                    </p>
+                                    <p>Participants acknowledge market volatility risks and user-side security responsibility.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="space-y-4">
+                            <label className="flex items-center gap-4 group cursor-pointer p-4 rounded-2xl bg-white/5 hover:bg-white/10 transition-all border border-white/5">
+                                <div className="relative flex items-center">
+                                    <input
+                                        type="checkbox"
+                                        className="peer sr-only"
+                                        checked={referralEmailConsent}
+                                        onChange={(e) => setReferralEmailConsent(e.target.checked)}
+                                    />
+                                    <div className="w-6 h-6 border-2 border-zinc-700 rounded-lg peer-checked:bg-brand-gold peer-checked:border-brand-gold transition-all" />
+                                    <Check className="absolute inset-0 m-auto text-black opacity-0 peer-checked:opacity-100 transition-all" size={16} strokeWidth={4} />
+                                </div>
+                                <span className="text-xs font-bold text-zinc-400 group-hover:text-white transition-colors uppercase tracking-widest text-center">
+                                    Authorize display of my email ID for <span className="text-brand-gold underline decoration-brand-gold/30">Referral Master</span>
+                                </span>
+                            </label>
+                        </div>
+
+                        <div className="flex gap-4 pt-4">
+                            <button
+                                onClick={() => setShowPolicyModal(false)}
+                                className="flex-1 py-4 border border-white/10 text-zinc-500 rounded-2xl font-bold text-xs uppercase tracking-widest hover:bg-white/5 transition-all"
+                            >
+                                Back
+                            </button>
+                            <button
+                                onClick={handleFinalRegistration}
+                                disabled={!followedName || formData.fullName.trim().toUpperCase() !== followedName.trim()}
+                                className="flex-[2] py-4 bg-brand-gold text-black rounded-2xl font-black text-sm uppercase tracking-[0.2em] hover:shadow-[0_0_40px_rgba(255,215,0,0.5)] transition-all disabled:opacity-50 active:scale-[0.98]"
+                            >
+                                AGREE & INITIALIZE
+                            </button>
+                        </div>
+                    </motion.div>
+                </div>
+            )}
         </div>
     );
 }
